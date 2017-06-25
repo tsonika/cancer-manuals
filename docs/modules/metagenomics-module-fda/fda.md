@@ -102,11 +102,14 @@ To get the OSD project page, either follow the above link or open the Metagenomi
 3. Click on the Sample Name link (not the Run link) to arrive at the overview page, describing various contextual data, such as the geographic location from which the material was isolated, its collection date, and so on.
 
 
-**Question 1:** What is the latitude, longitude and depth at which the sample was collected?
+!!! note "Question 1:"
+    What is the latitude, longitude and depth at which the sample was collected?
 
-**Question 2:** What geographic location does this correspond to?
+!!! note "Question 2:"
+    What geographic location does this correspond to?
 
-**Question 3:** What environmental ontology (ENVO) identifer and name has the sample material been annotated with?
+!!! note "Question 3:"
+    What environmental ontology (ENVO) identifer and name has the sample material been annotated with?
 
 Now scroll down to the ‘Associated runs’ section of the page. Some samples can have a number of sequencing runs associated with them (for example, corresponding to 16S rRNA amplicon analyses and WGS analyses performed on the same sample). In this case, there is only 1 associated run: ERR770971. Click on the Run ID to go to the Run page.
 
@@ -137,7 +140,8 @@ In a new tab or window, open your web browser and navigate to <http://www.ebi.ac
 
 Press Search and wait for your results. Your sequence will be run through the InterProScan analysis software, which attempts to match it against all of the different signatures in the InterProScan database.
 
-**Question 4: **Which protein family does InterProScan predict your sequence belongs to, and what GO terms are predicted to describe its function?
+!!! note "Question 4:"
+    Which protein family does InterProScan predict your sequence belongs to, and what GO terms are predicted to describe its function?
 
 Clicking on the InterPro entry name or IPR accession number will take you to the InterPro entry page for your result, where more information
 can be found.
@@ -148,29 +152,35 @@ Now we are going to look at the functional analysis results for all of the pCDS 
 
 Click on the Quality control tab. This page displays a series of charts, showing how many sequences passed each quality control step, how many reads were left after clustering, and so on.
 
-**Question 5:** After all of the quality filtering steps are complete, how many reads were submitted for analysis by the pipeline?
+!!! note "Question 5:"
+    After all of the quality filtering steps are complete, how many reads were submitted for analysis by the pipeline?
 
 Next, we will look at the results of the functional predictions for the
 pCDS. These can be found under the Functional analysis tab.
 
 Click on the Functional analysis tab and examine the InterPro match section. The top part of this page shows a sequence feature summary, showing the number of reads with predicted coding sequences (pCDS), the number of pCDS with InterPro matches, etc.
 
-**Question 6:**  How many predicted coding sequences (pCDS) are in the run?
+!!! note "Question 6:"  
+    How many predicted coding sequences (pCDS) are in the run?
 
-**Question 7:** How many pCDS have InterProScan hits?
+!!! note "Question 7:" 
+    How many pCDS have InterProScan hits?
 
 Scroll down the page to the InterPro match summary section
 
-**Question 8:** How many different InterPro entries were matched by the pCDS?
+!!! note "Question 8:"
+    How many different InterPro entries were matched by the pCDS?
 
-**Question 9:** Why is this figure different to the number of pCDS that have InterProScan hits?
+!!! note "Question 9:"
+    Why is this figure different to the number of pCDS that have InterProScan hits?
 
 Next we will examine the GO terms predicted by InterPro for the pCDS in the sample.
 
 Scroll down to the GO term annotation section of the page and examine the 3 bar charts, which correspond to the 3 different components of the
 Gene Ontology.
 
-**Question 10:** What are the top 3 biological process terms predicted for the pCDS from the sample?
+!!! note "Question 10:"
+    What are the top 3 biological process terms predicted for the pCDS from the sample?
 
 Selecting the pie chart representation of GO terms makes it easier to visualise the data to find the answer.
 
@@ -178,43 +188,54 @@ Now we will look at the taxonomic analysis for this run.
 
 Click on the Taxonomy Analysis tab and examine the phylum composition graph and table.
 
-**Question 11:** How many of the WGS reads are predicted to encode 16S rRNAs?
+!!! note "Question 11:"
+    How many of the WGS reads are predicted to encode 16S rRNAs?
 
-**Question 12:** What are the top 3 phyla in the run, according to 16S rRNA analysis?
+!!! note "Question 12:"
+    What are the top 3 phyla in the run, according to 16S rRNA analysis?
 
 Select the Krona chart view of the data icon. This brings up an
 interactive chart that can be used to analyse data at different
 taxonomic ranks.
 
-**Question 13:** What is the proportion of Polaribacter in the population?
+!!! note "Question 13:"
+    What is the proportion of Polaribacter in the population?
 
-Note: if the cyanobacteria section of the chart looks strange, this is because the version of GreenGenes used for analysis lists chloroplastic organisms under the cyanobacteria category; some of the cyanobacterial counts are, in fact, derived from photosynthetic eukaryotic organisms.
+!!! note 
+    If the cyanobacteria section of the chart looks strange, this is because the version of GreenGenes used for analysis lists chloroplastic organisms under the cyanobacteria category; some of the cyanobacterial counts are, in fact, derived from photosynthetic eukaryotic organisms.
 
 Now we will compare these analyses with those for a sample taken at 2 m depth from the same geographical location.
 
 In a new tab or window, find and open the Ocean Sampling Day (OSD) 2014 project page again. Find the sample OSD80_2014-06-21_2m_NPL022 and examine metadata on the Overview page.
 
-**Question 14:** Other than sampling depth, what are the differences between this sample and OSD80_2014-06-21_0m_NPL02?
+!!! note "Question 14:"
+    Other than sampling depth, what are the differences between this sample and OSD80_2014-06-21_0m_NPL02?
 
 Scroll to the Assocated runs section, and click on ERR770970. Open the Functional analysis tab and examine the Sequence feature and InterPro match summary information for this run.
 
-**Question 15:** How many pCDS were in this run? 
+!!! note "Question 15:"
+    How many pCDS were in this run? 
 
-**Question 16:** How many of the pCDSs have an InterPro match?
+!!! note "Question 16:"
+    How many of the pCDSs have an InterPro match?
 
-**Question 17:** How many different InterPro entries are matched by this run?
+!!! note "Question 17:"
+    How many different InterPro entries are matched by this run?
 
-**Question 18:** Are these figures broadly comparable to those for the previous sample?
+!!! note "Question 18:"
+    Are these figures broadly comparable to those for the previous sample?
 
 Now we are going to look at the differences in slimmed GO terms between the 2 runs. There are to ways to do this. First, you can simply scroll to the bottom of the page and examine the GO term annotation (note - selecting the bar chart representation of GO terms makes it easier to compare different data sets). Alternatively, you can use the comparison tool, which allows direct comparison of runs within a project. The tool can be accessed by clicking on the ‘Comparison Tool’ tab, illustrated in Figure 6 below. At present, the tool only compares slimmed GO terms, but will be expanded to cover full GO terms, InterPro annotations, and taxonomic profiles as development of the site continues.
 
 Click on the Comparison tool tab and choose the Ocean Sampling Day (OSD) 2014 project from the sample list and select the OSD80_2014-06- 21_0m_NPL02 - ERR770971 and OSD80_2014-06-21_2m_NPL022 - ERR770970.
 
-**Question 19:** Are there visible differences between the GO terms for these runs. Could there be any biological explanation for this?
+!!! note "Question 19:"
+    Are there visible differences between the GO terms for these runs. Could there be any biological explanation for this?
 
 Navigate back and open the taxonomic analysis results tab for each run.
 
-**Question 20:** How does the taxonomic composition differ between runs? Are any trends in the data consistent with your answer to question 19?
+!!! note "Question 20:"
+    How does the taxonomic composition differ between runs? Are any trends in the data consistent with your answer to question 19?
 
 ### Visualising taxonomic data using MEGAN
 
@@ -252,19 +273,23 @@ There are many different visualisations and comparisons that can be performed us
 
 Click on the ‘Show chart’ icon and choose ‘Stacked Bar Chart’. This should give you a bar chart, showing the abundance reads for taxonomic lineages across all of the sampling sites.
 
-**Question 21:** Are the number of classified 16S reads roughly equivalent across all of the different sampling sites?
+!!! note "Question 21:"
+    Are the number of classified 16S reads roughly equivalent across all of the different sampling sites?
 
-**Question 22:** Which run appears particularly enriched in Polaribacter?
+!!! note "Question 22:"
+    Which run appears particularly enriched in Polaribacter?
 
 You can change between abundance counts and relative abundance using the Options drop menu and choosing % Percentage Scale or Linear Scale.
 
 Change the chart view to ‘Bubble Chart’. This visualisation can be useful when comparing a large number of samples.
 
-**Question 23:** Do any samples contain taxa not found in other samples? 
+!!! note "Question 23:" 
+    Do any samples contain taxa not found in other samples? 
 
 Take a look at the Schlegelella genus.
 
-**Question 24:** Can you discern any patterns in the geographical distribution of certain species (for example, the cluster of samples enriched for the lactobacillus genus compared to other samples)?
+!!! note "Question 24:"
+    Can you discern any patterns in the geographical distribution of certain species (for example, the cluster of samples enriched for the lactobacillus genus compared to other samples)?
 
 We are now going to take a look at which other datasets in EBI Metagenomics that lactobacilli are found in. Point your browser at https://www.ebi.ac.uk/metagenomics/search/
 
@@ -272,13 +297,17 @@ This interface allows you to search the project, sample and run related metadata
 
 Click on the ‘Runs’ tab. You should now see a number of run-related metadata search facets on the left hand side of the page, including ‘Organism’. Click on the ‘More...’ option under Organism, scroll down to ‘Lactobacillus’ in the pop-up window and select the check box next to it. Now click ‘Filter’. The results page should now show all of the runs that have taxonomic matches to lactobacilli in their datasets. The ‘Biome’ facet on the left hand side of the page now shows the number of matching datasets in each biome category (to save space, the 10 biome categories with the most matching datasets are shown by default).
 
-**Question 25:** Which biome category has the most datasets that contain lactobacilli?
+!!! note "Question 25:"
+    Which biome category has the most datasets that contain lactobacilli?
 
-**Question 26:** How well does this correlate with what’s known about these bacteria?
+!!! note "Question 26:"
+    How well does this correlate with what’s known about these bacteria?
 
 Finally, we will try to use the interface to find functional proteins present under certain environmental conditions. For example, InterPro entry IPR001087 represents a domain found in GDSL esterases and lipases, which are hydrolytic enzymes with multifunctional properties.
 
-**Question 27:** Using the search interface, can you identify the metagenomics datasets sampled from ocean sites at between 10 and 15 degrees C that contain these enzymes?
+!!! note "Question 27:" 
+    Using the search interface, can you identify the metagenomics datasets sampled from ocean sites at between 10 and 15 degrees C that contain these enzymes?
 
-**Question 28:** Can you envisage ways in which this kind of search functionality could be used for target / enzyme discovery?
+!!! note "Question 28:" 
+    Can you envisage ways in which this kind of search functionality could be used for target / enzyme discovery?
 
