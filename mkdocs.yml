@@ -85,7 +85,9 @@ pages:
 #     - DeNovo Introduction to Command Line: modules/denovo-module-cli/commandline.md
 #     - Eukaryote Assembly: modules/denovo-module-euk/eukaryotic_assem.md
 #     - Scaffolding: modules/denovo-module-scaffolding/scaffold.md
-#     - Metagenomics Functional Analysis: modules/metagenomics-module-fda/fda.md
+#     - Metagenomics Functional Analysis:
+#         - Functional Analysis using EMG: modules/metagenomics-module-fda/fda.md
+#         - Mining EMG with R: modules/metagenomics-module-emgr/emgr.md
 #     - Metagenomics Data Quality: modules/metagenomics-module-qc/ngs-qc.md
 #     - Metagenomics Taxonomic : modules/metagenomics-module-tax/tax.md
 #     - Metagenomics Visualisation: modules/metagenomics-module-vis/vis.md
