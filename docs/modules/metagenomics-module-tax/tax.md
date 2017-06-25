@@ -147,7 +147,8 @@ Four FASTQ files will be generated for each set of paired-end reads:
 
 The default log file "pear_summary_log.txt" contains the percent of reads either assembled, discarded or unassembled.
 
-**Q1)** What percent of reads were successfully stitched for sample 40CMK6WT?
+!!! note "Question 1" 
+    What percent of reads were successfully stitched for sample 40CMK6WT?
 
 ###Filtering reads by quality and length
 
@@ -164,7 +165,8 @@ By default this script will output filtered FASTQs in a folder called **"filtere
 
 If you look in this logfile you will note that ~40% of reads were filtered out for each sample. You can also see the counts and percent of reads dropped at each step.
 
-**Q2)** How many of sample 36CMK6WT's reads were filtered out for not containing a match to the forward primer (which is the default setting in this case).
+!!! note "Question 2"
+    How many reads of sample 36CMK6WT were filtered out for not containing a match to the forward primer (which is the default setting in this case).
 
 ###Conversion to FASTA and removal of chimeric reads
 
@@ -189,9 +191,14 @@ This script will remove any reads called either ambiguously or as chimeric, and 
 
 By default the logfile "chimeraFilter_log.txt" is generated containing the counts and percentages of reads filtered out for each sample.
 
-**Q3)** What is the mean percent of reads retained after this step, based on the output in the log file ("nonChimeraCallsPercent" column)?
+!!! note "Question 3"
+    What is the mean percent of reads retained after this step, based on the output in the log file ("nonChimeraCallsPercent" column)?
 
-**Q4)** What percent of stitched reads was retained for sample 75CMK8KO after all the filtering steps (HINT: you'll need to compare the original number of reads to the number of reads output by chimera_filter.pl)?
+!!! note "Question 4"
+     What percent of stitched reads was retained for sample 75CMK8KO after all the filtering steps 
+
+!!! hint 
+    "you will need to compare the original number of reads to the number of reads output by chimera_filter.pl)?"
 
 ### Assign samples to the reads
 
@@ -297,11 +304,17 @@ Counts/sample detail:
 108CHE6KO: 413.0
 ```
 
-**Q5)**What is the read depth for sample "75CMK8KO"?
+!!! note "Question 5"
+    What is the read depth for sample "75CMK8KO"?
 
 We need to subsample the number of reads for each sample to the same depth, which is necessary for several downstream analyses. This is called **rarefaction**, a technique that provides an indication of **species richness** for a given number of samples. First it indicates if you have sequence enough to identify all species. Second we want to rarify the read depth of samples to a similar number of reads for comparative analysis. There is actually quite a lot of debate about whether rarefaction is necessary (since it throws out data), but it is still the standard method used in microbiome studies. We want to rarify the read depth to the sample with the lowest "reasonable" number of reads. Of course, a "reasonable" read depth is quite subjective and depends on how much variation there is between samples.
 
+###Rarify reads
 
+```{bash}
+mkdir final_otu_tables
+single_rarefaction.py -i clustering/otu_table_high_conf.biom -o final_otu_tables/otu_table.biom -d 355
+```
 ###Visualize taxonomic composition
 ---
 
@@ -330,7 +343,7 @@ Alpha diversity is the microbial diversity within a sample. QIIME can calculate 
 Run the following command from within your taxonomy directory, this should take a few minutes:
 
 ```bash
-alpha_rarefaction.py -i final_otu_tables/otu_table.biom -o plots/alpha_rarefaction_plot -t clustering/rep_set.tre --min_rare_depth 40 --max_rare_depth 375 -m map.txt  --num_steps 10
+alpha_rarefaction.py -i final_otu_tables/otu_table.biom -o plots/alpha_rarefaction_plot -t clustering/rep_set.tre --min_rare_depth 40 --max_rare_depth 355 -m map.txt  --num_steps 10
 ```
 
 First we are going to view the rarefaction curves in a web browser by opening the resulting HTML file to view the plots: 
@@ -355,7 +368,7 @@ Run the following command from within your taxonomy directory, this should take 
 Beta diversity analysis, is the assessment of differences between microbial communities/samples. As we have already observed, our samples contain different numbers of sequences. The first step is to remove sample heterogeneity by randomly selecting the same number of reads from every sample. This number corresponds to the ’minimum’ number recorded when you looked at the OTU statistics.  Now run the following command
 
 ```bash
-￼￼beta_diversity_through_plots.py -i final_otu_tables/otu_table.biom -m map.txt -o bdiv_even -t otus/rep_set.tre -e 365
+beta_diversity_through_plots.py -i final_otu_tables/otu_table.biom -m map.txt -o bdiv_even -t otus/rep_set.tre -e 355
 ```
 
 Good data quality and sample metadata is important for visualising metagenomics analysis. The output of these comparisons is a square matrix where a distance or dissimilarity is calculated between every pair of community samples, reflecting the dissimilarity between those samples. The data distance matrix can be then visualized with analyses such as PCoA and hierarchical clustering.
