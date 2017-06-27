@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This contains all material for Markdown version of BTP workshops.">
+      
+      
+      
+        <meta name="author" content="Authors">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.3">
+    
+    
+      
+        <title>The Trainers - Markdown Manuals for Bioinformatics Training Platform (BTP)</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-acc56dad49.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-8817cfa535.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../css/details.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../.." title="Markdown Manuals for Bioinformatics Training Platform (BTP)" class="md-logo md-header-nav__button">
+            <img src="../../media/logos/bpalogo.png" width="24" height="24">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+            
+            The Trainers
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Home" class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../timetables/timetable_introNGS/" title="Timetable" class="md-tabs__link">
+          Timetable
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../modules/btp-module-ngs-cli/commandline/" title="Introduction to NGS Modules" class="md-tabs__link">
+          Introduction to NGS Modules
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../modules/cancer-module-alignment/alignment/" title="Cancer Genomics Modules" class="md-tabs__link">
+          Cancer Genomics Modules
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../modules/denovo-module-bac/bac_asm/" title="DeNovo Modules" class="md-tabs__link">
+          DeNovo Modules
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../modules/metagenomics-module-qc/ngs-qc/" title="Metagenomics Modules" class="md-tabs__link">
+          Metagenomics Modules
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../../media/logos/bpalogo.png">
+      </i>
+    
+    Markdown Manuals for Bioinformatics Training Platform (BTP)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+    <a href="./" title="The Trainers" class="md-nav__link md-nav__link--active">
+      The Trainers
+    </a>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Timetable
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Timetable
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../timetables/timetable_introNGS/" title="Intro to NGS" class="md-nav__link">
+      Intro to NGS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../timetables/timetable_cancer/" title="Cancer Genomics" class="md-nav__link">
+      Cancer Genomics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../timetables/timetable_longRead/" title="Long Read" class="md-nav__link">
+      Long Read
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../preamble/" title="Workshop Information" class="md-nav__link">
+      Workshop Information
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Introduction to NGS Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Introduction to NGS Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-ngs-cli/commandline/" title="Introduction to Command Line" class="md-nav__link">
+      Introduction to Command Line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-ngs-qc/ngs-qc/" title="Data Quality" class="md-nav__link">
+      Data Quality
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-ngs-mapping/alignment/" title="Read Alignment" class="md-nav__link">
+      Read Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-chip-seq/chip-seq/" title="ChIP-seq" class="md-nav__link">
+      ChIP-seq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-rna-seq/rna-seq/" title="RNA-Seq" class="md-nav__link">
+      RNA-Seq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-ngs-bio/biol/" title="NGS Biological Insight" class="md-nav__link">
+      NGS Biological Insight
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-velvet/velvet/" title="de novo Genome Assembly" class="md-nav__link">
+      de novo Genome Assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/btp-module-denovo-canu/denovo_canu/" title="DeNovo Canu" class="md-nav__link">
+      DeNovo Canu
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Cancer Genomics Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Cancer Genomics Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/cancer-module-alignment/alignment/" title="Read Alignment" class="md-nav__link">
+      Read Alignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/cancer-module-snv/snv/" title="Single Nucleotide Variant Calling and Annotation" class="md-nav__link">
+      Single Nucleotide Variant Calling and Annotation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/cancer-module-cnv/cnv-tut/" title="Copy Number Variation" class="md-nav__link">
+      Copy Number Variation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/cancer-module-sv/sv_tut/" title="Structural Variant Analysis" class="md-nav__link">
+      Structural Variant Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/cancer-module-viz/visu/" title="Variant Visualisation" class="md-nav__link">
+      Variant Visualisation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+    
+    <label class="md-nav__link" for="nav-6-6">
+      Somatic Mutations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-6">
+        Somatic Mutations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/cancer-module-somatic/01_signatures/" title="Assessing somatic mutational signatures" class="md-nav__link">
+      Assessing somatic mutational signatures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/cancer-module-somatic/02_intogen/" title="Cohort analysis for the identification of driver genes" class="md-nav__link">
+      Cohort analysis for the identification of driver genes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      DeNovo Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        DeNovo Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/denovo-module-bac/bac_asm/" title="Bacterial Assembly" class="md-nav__link">
+      Bacterial Assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/denovo-module-euk/eukaryotic_assem/" title="Eukaryote Assembly" class="md-nav__link">
+      Eukaryote Assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/denovo-module-scaffolding/scaffold/" title="Scaffolding" class="md-nav__link">
+      Scaffolding
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Metagenomics Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Metagenomics Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/metagenomics-module-qc/ngs-qc/" title="Metagenomics QC" class="md-nav__link">
+      Metagenomics QC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/metagenomics-module-tax/tax/" title="Metagenomics Taxonomic" class="md-nav__link">
+      Metagenomics Taxonomic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/metagenomics-module-vis/vis/" title="Metagenomics Visualisation" class="md-nav__link">
+      Metagenomics Visualisation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/metagenomics-module-wga/wga/" title="Metagenomics WGA" class="md-nav__link">
+      Metagenomics WGA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/metagenomics-module-fda/fda/" title="Metagenomics Functional Analysis" class="md-nav__link">
+      Metagenomics Functional Analysis
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>The Trainers</h1>
+                
+                <!--[image](images/generic.jpg) **NAME**, Position, Affiliation-->
+
+<p><img alt="image" src="../images/Andrews.jpg" /> <strong>Dr. Dan Andrews</strong> Bioinformatics Fellow, John Curtin School of Medical Research, Australian National University, Canberra   </p>
+<p><img alt="image" src="../images/Champ.jpg" /> <strong>Ms. Katherine Champ</strong> Workshop Coordinator, Project Officer, Bioplatform Autralia Ltd.  </p>
+<p><img alt="image" src="../images/Chen.jpg" /> <strong>Dr. Zhiliang Chen</strong> Postdoctoral Research Associate, The University of New South Wales (UNSW), Sydney  </p>
+<p><img alt="image" src="../images/Corley.jpg" /> <strong>Dr. Susan Corley</strong> Postdoctoral Research Associate, The University of New South Wales (UNSW), Sydney  </p>
+<p><img alt="image" src="../images/Deshpande.jpg" /> <strong>Dr. Nandan Deshpande</strong> Postdoctoral Research Associate, The University of New South Wales (UNSW), Sydney  </p>
+<p><img alt="image" src="../images/Duesing.jpg" /> <strong>Dr. Konsta Duesing</strong> Research Team Leader - Statistics &amp; Bioinformatics, CSIRO Animal, Food and Health Science, Sydney  </p>
+<p><img alt="image" src="../images/Field.jpg" /> <strong>Dr. Matthew Field</strong> Senior Research Fellow, Australian National University/James Cook University, Cairns</p>
+<p><img alt="image" src="../images/Gayevskiy.jpg" /> <strong>Dr. Velimir Gayevskiy</strong> Translational Bioinformatics Officer, KCCG, Garvan Institute of Medical Research NSW  </p>
+<p><img alt="image" src="../images/generic.jpg" /> <strong>Paul Greenfield</strong> Principal Experimental Scientist, CSIRO, Sydney  </p>
+<p><img alt="image" src="../images/Li.jpg" /> <strong>Dr. Xi (Sean) Li</strong> The Australian National University, Canberra  </p>
+<p><img alt="image" src="../images/McGrath.jpg" /> <strong>Dr. Annette McGrath</strong> Principal Research Scientist, Team Leader, Life Science Informatics DATA61, CSIRO, Canberra  </p>
+<p><img alt="image" src="../images/McWilliam.jpg" /> <strong>Mr. Sean McWilliam</strong> Bioinformatics Analyst, CSIRO Agriculture, Brisbane  </p>
+<p><img alt="image" src="../images/Moncuquet.jpg" /> <strong>Dr. Philippe Moncuquet</strong> Research Project Officer, Cotton Disease Markers, CSIRO, Canberra</p>
+<p><img alt="image" src="../images/Moolhuijzen.jpg" /> <strong>Dr. Paula Moolhuijzen</strong> Bioinformatics Analyst, Centre for Crop Disease Management, Curtin University, Perth  </p>
+<p><img alt="image" src="../images/Patch.jpg" /> <strong>Dr. Ann-Marie Patch</strong> Senior Research Officer, Medical Genomics QIMR Berghofer Medical Research Institute, Brisbane  </p>
+<p><img alt="image" src="../images/Philip.jpg" /> <strong>Dr. Gayle Philip</strong> Research Fellow (Bioinformatics), Melbourne Bioinformatics, Carlton, Melbourne  </p>
+<p><img alt="image" src="../images/Revote.jpg" /> <strong>Mr. Jerico Revote</strong> Software Developer Monash eResearch Centre, Monash University, Clayton Melbourne  </p>
+<p><img alt="image" src="../images/Seemann.jpg" /> <strong>A/Prof. Torsten Seemann</strong> Lead Bioinformatician, Melbourne Bioinformatics and MDU-PHL, The University of Melbourne, VIC  </p>
+<p><img alt="image" src="../images/generic.jpg" /> <strong>Dr Anna Syme</strong> Bioinformatician, Melbourne Bioinformatics, Melbourne  </p>
+<p><img alt="image" src="../images/Teber.png" /> <strong>Dr. Erdahl Teber</strong> Senior Research Officer (Bioinformatics), Children Medical Research Institute, Kids Cancer Alliance, University of Sydney, Sydney  </p>
+<p><img alt="image" src="../images/Tyagi.jpg" /> <strong>Dr. Sonika Tyagi</strong> Bioinformatics Supervisor, Australian Genome Research Facility Ltd, The Walter and Eliza Hall Institute, Melbourne   </p>
+<p><img alt="image" src="../images/watson-haigh.jpg" /> <strong>Dr. Nathan S. Watson-Haigh</strong> Research Fellow in Bioinformatics, The Australian Centre for Plant Functional Genomics (ACPFG), Adelaide  </p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../timetables/timetable_introNGS/" title="Intro to NGS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Intro to NGS
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; The authors; 2017-
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-b30566c560.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../js/details.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
