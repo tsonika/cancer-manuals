@@ -11,12 +11,11 @@ After completing this practical the trainee should be able to:
 
 -   Conduct 16S taxonomic analysis on shotgun data
 
-##Resources You’ll be Using
+##Resources you will be using
 -------------------------
 
-### Tools Used
+### Tools Used: Part 1. 16S Analysis 
 
-**Part 1: 16S Analysis**
 
 QIIME :  http://qiime.org/
 
@@ -32,11 +31,12 @@ SortMeRNA: http://bioinfo.lifl.fr/RNA/sortmerna/
 
 STAMP: http://kiwi.cs.dal.ca/Software/STAMP
 
-**Part 2: 16S analysis of whole genome shotgun sequencing**
+### Tools Used: Part 2. 16S analysis of whole genome shotgun sequencing
 
 rRNASelector :   http://www.ezbiocloud.net/sw/rrnaselector
 
 MEGAN6 : http://ab.inf.uni-tuebingen.de/software/megan6
+
 
 ###Useful Links
 ------------
@@ -56,7 +56,7 @@ Lee et al. (2011). rRNASelector: a computer program for selecting ribosomal RNA 
 ### Sources of Data
 ---
 
-**Part 1: 16S Analysis**
+### Part 1: 16S Analysis
 
 - Data : Mouse gut microbial composition affected by the protein chemerin.  https://www.dropbox.com/s/4fqgi6t3so69224/Sinal_Langille_raw_data.tar.gz
 https://www.dropbox.com/s/r2jqqc7brxg4jhx/16S_chemerin_tutorial.zip
@@ -64,16 +64,14 @@ https://www.dropbox.com/s/r2jqqc7brxg4jhx/16S_chemerin_tutorial.zip
 - RDP_trainset16_022016.fa (20 MB) is a subset of the Ribosome Database Project (RDP) filtered to include only bacteria.
 https://www.dropbox.com/s/qnlsv7ve2lg6qfp/RDP_trainset16_022016.fa?dl=1 
 
-**Part 2: 16S analysis of whole genome shotgun sequencing**
+### Part 2: 16S analysis of whole genome shotgun sequencing
 
 -   Li et al. (2013). Draft Genome Sequence of Thermoanaerobacter sp. Strain A7A, Reconstructed from a Metagenome Obtained from a High-Temperature Hydrocarbon Reservoir in the Bass Strait, Australia. Genome Announc. 1(5): e00701-13.
 
-###Introduction
+### Overview
 ------------
 
-In this tutorial we will look at the open source software package QIIME (pronounced ’chime’).
-
-QIIME stands for Quantitative Insights Into Microbial Ecology. The package contains many tools that enable users to analyse and compare microbial communities. 
+In this tutorial we will look at the open source software package QIIME (pronounced ’chime’). QIIME stands for Quantitative Insights Into Microbial Ecology. The package contains many tools that enable users to analyse and compare microbial communities. 
 
 After completion of this tutorial, you should be able to perform a taxonomic analysis on a Illumina pair end 16S rRNA amplicon dataset. In addition you should be able to do 16S rRNA taxonomic analysis on shotgun data using the tool rRNASelector in combination with QIIME and other third party tools.
 
@@ -82,6 +80,24 @@ After completion of this tutorial, you should be able to perform a taxonomic ana
 ###De novo OTU picking and diversity analysis using Illumina data
 ---
 
+
+### Introduction
+
+The workflow for 16S analysis in general is as follows:
+
+1. Split multiplexed reads to samples
+2. Join overlapping read pairs
+4. Filter reads on quality and length
+5. Filter Chimera sequences
+6. Assign reads to samples
+7. Pick operational taxonomic units (OTUs) for each sample
+8. Alpha diversity analysis and rarefaction
+9. Beta diversity analysis and Taxonomic composition
+10. PCA analysis
+ 
+
+
+
 16S analysis is a method of microbiome analysis (compared to shotgun metagenomics) that targets the 16S ribosomal RNA gene, as this gene is present in all prokaryotes. It features regions that are conserved among these organisms, as well as variable regions that allow distinction among organisms. These characteristics make this gene useful for analyzing microbial communities at reduced cost compared to metagenomic techniques. A similar workflow can be applied to eukaryotic micro-organisms using the 18S rRNA gene.
 
 
@@ -89,7 +105,9 @@ The tutorial dataset was originally used in a project to determine whether knock
 
 ### The Mapping file 
 
-Metadata associated with each sample is indicated in the mapping file (map.txt). In this mapping file the genotypes of interest can be seen: wildtype (WT), chemerin knockout (chemerin_KO), chemerin receptor knockout (CMKLR1_KO) and a heterozygote for the receptor knockout (HET). Also of importance are the two source facilities: "BZ" and "CJS". It is important to include as much metadata as possible, so that it can be easily explored later on.
+Metadata associated with each sample is indicated in the mapping file (map.txt). The mapping file associates the read data files for a sample to it's metadata. The mapping file can contain information on your experimental design. The format is very strict; columns are separated with a single TAB character; the header names have to be typed exactly as specified in the documentation. A good sample description is useful as it is used in the legends of the figures QIIME generates.
+
+In the mapping (map.txt) file the genotypes of interest can be seen: wildtype (WT), chemerin knockout (chemerin_KO), chemerin receptor knockout (CMKLR1_KO) and a heterozygote for the receptor knockout (HET). Also of importance are the two source facilities: "BZ" and "CJS". It is important to include as much metadata as possible, so that it can be easily explored later on.
 
 
 Open Terminal and go to the dataset's directory:
@@ -117,6 +135,9 @@ SampleID       BarcodeSequence LinkerPrimerSequence    FileInput       Source  M
 107CHE6KO                       107CHE6KO_S347_L001.assembled_filtered.nonchimera.fasta BZ      BZ27    7       chemerin_KO     wk6
 ```
 
+!!! note "Note"
+The Barcode and LinkerPrimerSequence are absent for this tutorial, these would be used for assigning multiplexed reads to samples and for quality control. Our tutorial data set is already de-multiplexed. What QIIME could be used? 
+  
 Execute the following command and test the mapping file for potential errors:
 
     validate_mapping_file.py -m map.txt -o map_output
@@ -204,7 +225,7 @@ By default the logfile "chimeraFilter_log.txt" is generated containing the count
 
 Now that we have adequately prepared the reads, we can now run OTU picking using QIIME. An Operational Taxonomic Unit (**OTU**) defines a taxonomic group based on sequence similarity among sampled organisms. QIIME software clusters sequence reads from microbial communities in order to classify its constituent micro-organisms into OTUs. QIIME requires FASTA files to be input in a specific format (specifically, sample names need to be at the beginning of each header line). We have provided the mapping file (**"map.txt"**), which links filenames to sample names and metadata.
 
-If you open up map.txt (e.g. with **less -S**) you will notice that 2 columns are present without any data: "**BarcodeSequence**" and "**LinkerPrimerSequence**". We don't need to use these columns, so we have left them blank. These would normally be populated for multiplexed data.
+As we saw the map.txt (e.g. with **less -S**) had 2 columns without any data: "**BarcodeSequence**" and "**LinkerPrimerSequence**". We don't need to use these columns today. These would normally be populated for multiplexed data.
 
 Also, you will see that the "**FileInput**" column contains the names of each FASTA file, which is what we need to specify for the command below.
 
@@ -215,6 +236,8 @@ add_qiime_labels.py -i non_chimeras/ -m map.txt -c FileInput -o combined_fasta
 ```
 
 If you take a look at **combined_fasta/combined_seqs.fna** you can see that the first column of header line is a sample name taken from the mapping file.
+
+###De novo OTU picking
 
 Now that the input file has been correctly formatted we can run the actual OTU picking program.
 
@@ -290,7 +313,6 @@ The Word Cloud visualization is interesting, too, if you want to find out which 
 
 
 ###View OTU statistics
-----------------------
 
 You can generate some statistics, e.g. the number of reads assigned, distribution among samples. Some of the statistics are useful for further downstream analysis, e.g. beta-diversity analysis.  **Write down the minimum value under Counts/sample summary**. We need it for beta-diversity analysis.
 You can look at the read depth per sample in **clustering/otu_table_high_conf_summary.txt**, here are the first five samples (they are sorted from smallest to largest):
@@ -331,9 +353,8 @@ Desktop ->;Taxonomy ->; wf_taxa_summary ->; taxa_summary_plots
 and open either area_charts.html or bar_chars.html. 
 ```
 
-I prefer the bar charts myself. The top chart visualizes taxonomic composition at phylum level for each of the samples. 
+I prefer the bar charts myself. The top chart visualizes taxonomic composition at phylum level for each of the samples. The next chart goes down to class level and following charts go another level up again. The charts (particularly the ones more at the top) are very useful for discovering how the communities in your samples differ from each other. 
 
-The next chart goes down to class level and following charts go another level up again. The charts (particularly the ones more at the top) are very useful for discovering how the communities in your samples differ from each other. There is a similar plot in the paper, if you have time, see how our analysis compares with the one described in the paper.
 
 ###Alpha diversity within samples and rarefaction curves
 ---
@@ -409,11 +430,11 @@ We can now take a look at whether the genotypes separate in the re-generated wei
 
 For the BZ source facility:
 
-![PCA-plot-BZ](images/PAC4.png)
+![PCA-plot-BZ](images/PCA4.png)
 
 And for the CJS source facility:
 
-![PCA-plot-PAC5](images/PAC5.png)
+![PCA-plot-PAC5](images/PCA5.png)
 
 
 Just by looking at these PCoA plots it's clear that if there is any difference it's subtle. To statistically evaluate whether the weighted UniFrac beta diversities differ among genotypes within each source facility, you can run an analysis of similarity (ANOSIM) test. These commands will run the ANOSIM test and change the output filename:
@@ -445,12 +466,12 @@ plots/bdiv_otu/unweighted_unifrac_emperor_pcoa_plot/index.html
 
 Open the weighted HTML file in your browser and take a look, you should see a PCoA very similar to this:
 
-![Beta-diversity-unifrac-weighted](images/PAC1.png)
+![Beta-diversity-unifrac-weighted](images/PCA1.png)
 
 
 The actual metadata we are most interested in for this dataset is the "genotype" column of the mapping file, which contains the different genotypes I described at the beginning of this tutorial. Go to the "Colors" tab of the Emperor plot (which is what we were just looking at) and change the selection from "BarcodeSequence" (default) to "genotype". You should see a similar plot to this:
 
-![Beta-diversity-unifrac-weighted-genotype](images/PAC2.png)
+![Beta-diversity-unifrac-weighted-genotype](images/PCA2.png)
 
 
 
@@ -458,7 +479,7 @@ The WT genotype is spread out across both knockout genotypes, which is not what 
 
 You'll see what's really driving the differences in beta diversity when you change the selection under the "Colors" tab from "genotype" to "Source":
 
-![Beta-diversity-unifrac-weighted-source](images/PAC3.png)
+![Beta-diversity-unifrac-weighted-source](images/PCA3.png)
 
 
 ###Using STAMP to test for particular differences
@@ -484,13 +505,12 @@ As a reminder, the full paths of these files should be:
 
 Change the Group field to "Source" and the profile level to "Level_6" (which corresponds to the genus level). Change the heading from "Multiple groups" to "Two groups". The statistical test to "Welch's t-test" and the multiple test correction to "Benjamini-Hochberg FDR"
 
-Change the plot type to "Bar plot".
+Change the plot type to "Bar plot". Look at the barplot for Prevotella and save it to a file.
 
-**Q5)** Look at the barplot for Prevotella and save it to a file.
+!!! note "Question"
+    Can you see how many genera are significant by clicking "Show only active features"?
 
-You can see how many genera are significant by clicking "Show only active features".
-
-### _Part 2: 16S analysis of whole genome shotgun sequencing_
+### Part 2: 16S analysis of whole genome shotgun sequencing
 
 ###Closed reference OTU picking of 16S ribosomal rRNA fragments selected from a shotgun data set
 ---
@@ -530,7 +550,7 @@ A graphical interface should appear. Note interaction with the interface may hav
 
 If all went well, you can close rRNASelector by clicking on Exit. You will have 3 new files in your directory, one containing untrimmed 16S reads, one containing trimmed 16S reads (**A7A-paired.prok.16s.trim.fasta**; that’s the one we want) and a file containing reads that do not contain (sufficient) 16S sequence.
 
-###Closed-reference OTU picking workflow and visualization of results in Megan 5
+###Closed-reference OTU picking workflow and visualization of results in Megan 6
 ---
 
 We are now ready to pick our OTUs. We do that by running the following
@@ -550,9 +570,6 @@ We need to specify the following options. The command will take several minutes 
 ###Bonus
 -----
 
-If there is time left you could go back to the study. The aim of this study was to understand interrelationship among microbial community composition, effects cheremin on laboratory mice. With additional information from the paper, could you come up with some conclusions?
-
-Check the results from the ribosomal database classifier, how do these differ from the QIIME default GreenGenes (gg\_otus\_97) database classifier results? What can you conclude?
 
 The QIIME overview tutorial at
 (http://qiime.org/tutorials/tutorial.html) has a number of additional steps that you may find interesting; so feel free to try some of them out. Note hat we have not installed Cytoscape, so we cannot visualize OTU networks.
