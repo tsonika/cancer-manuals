@@ -87,7 +87,10 @@ pages:
 #     - Scaffolding: modules/denovo-module-scaffolding/scaffold.md
 #     - Metagenomics Functional Analysis:
 #         - Functional Analysis using EMG: modules/metagenomics-module-fda/fda.md
-#         - Mining EMG with R: modules/metagenomics-module-emgr/emgr.md
+#     - Metagenomics mining EMG with R:
+#         - Mining EMG with R part 1: modules/metagenomics-module-emgr/emgr-part1.md
+#         - Mining EMG with R part 2A: modules/metagenomics-module-emgr/emgr-part2A.md
+#         - Mining EMG with R part 2B: modules/metagenomics-module-emgr/emgr-part2B.md
 #     - Metagenomics Data Quality: modules/metagenomics-module-qc/ngs-qc.md
 #     - Metagenomics Taxonomic : modules/metagenomics-module-tax/tax.md
 #     - Metagenomics Visualisation: modules/metagenomics-module-vis/vis.md

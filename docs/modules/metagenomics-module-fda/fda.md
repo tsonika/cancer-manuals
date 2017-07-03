@@ -135,7 +135,8 @@ In a moment, we will look at the analysis results for this entire batch of seque
 In a new tab or window, open your web browser and navigate to <http://www.ebi.ac.uk/interpro/>. Copy and paste the following sequence into the text box on the InterPro home page where it says ‘Analyse your sequence’:
 
 ```
->HWI-M02024:110:000000000-A8H0K:1:1101:23198:21331- 1:N:0:TCAGAGAC_1_267_- HLLSYRYAYGKFSSTHEATIGGCFLTKDEELDDHIVKYEIWDTAGKNGTIHLPRCTTSKAYXIQVTWYRNAIAAVVVFDVTSRDSFEK
+>HWI-M02024:110:000000000-A8H0K:1:1101:23198:21331-1:N:0:TCAGAGAC_1_267
+HLLSYRYAYGKFSSTHEATIGGCFLTKDEELDDHIVKYEIWDTAGKNGTIHLPRCTTSKAYXIQVTWYRNAIAAVVVFDVTSRDSFEK
 ```
 
 Press Search and wait for your results. Your sequence will be run through the InterProScan analysis software, which attempts to match it against all of the different signatures in the InterProScan database.
@@ -227,7 +228,7 @@ Scroll to the Assocated runs section, and click on ERR770970. Open the Functiona
 
 Now we are going to look at the differences in slimmed GO terms between the 2 runs. There are to ways to do this. First, you can simply scroll to the bottom of the page and examine the GO term annotation (note - selecting the bar chart representation of GO terms makes it easier to compare different data sets). Alternatively, you can use the comparison tool, which allows direct comparison of runs within a project. The tool can be accessed by clicking on the ‘Comparison Tool’ tab, illustrated in Figure 6 below. At present, the tool only compares slimmed GO terms, but will be expanded to cover full GO terms, InterPro annotations, and taxonomic profiles as development of the site continues.
 
-Click on the Comparison tool tab and choose the Ocean Sampling Day (OSD) 2014 project from the sample list and select the OSD80_2014-06- 21_0m_NPL02 - ERR770971 and OSD80_2014-06-21_2m_NPL022 - ERR770970.
+Click on the Comparison tool tab and choose the Ocean Sampling Day (OSD) 2014 project from the sample list and select the OSD80_2014-06- 21_0m_NPL022 - ERR770971 and OSD80_2014-06-21_2m_NPL022 - ERR770970.
 
 !!! note "Question 19:"
     Are there visible differences between the GO terms for these runs. Could there be any biological explanation for this?
@@ -254,15 +255,15 @@ http://ab.inf.uni-tuebingen.de/software/megan6/
 
 We now need to download the full taxonomic predictions for all of the runs in the Ocean Sampling Day project.
 
-Navigate to the Project: Ocean Sampling Day (OSD)... page, using the breadcrumb link at the top of the page. Click on the Analysis summary tab, which will take you to a set of tab separated result matrix files, summarising the taxonomic and functional observations for all runs in the project.
+Navigate to the Project: Ocean Sampling Day (OSD) page, using the breadcrumb URL link at the top of the page. Click on the Analysis summary tab, which will take you to a set of tab separated result matrix files, summarising the taxonomic and functional observations for all runs in the project.
 
 Click on the Taxonomic assignments (TSV) link, which will download the corresponding file to your computer. When prompted, choose to save the file in the Downloads folder.
 
-Open the Terminal, navigate to the Downloads directory and take a look at the file you have just downloaded:
+Open the Terminal, navigate to the Downloads directory and take a look at the file you have just downloaded (hit q to exit less):
 
 ```bash
 cd ~/Downloads
-less ERP009703_taxonomy_abundances_v2.0.tsv
+less -S ERP009703_taxonomy_abundances_v2.0.tsv
 ```
 
 You will see it is a large matrix file, with abundance counts for each taxonomic lineage for each run in the project. From the MEGAN menu, choose ‘File’ and ‘Import’. Select ‘CSV Import’ and then find the file you have just downloaded and edited.
