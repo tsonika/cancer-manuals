@@ -296,64 +296,40 @@ Extract the data from the data structure "results" created earlier.
 ```{r}
 mf_slim <- tbl_df(results$MF_GO_slim_abundances)
 mf_slim <- mf_slim %>% mutate(description=as.character(description))
-```
-
-A small function to automate extraction of count per datatype (metagenomic, metatranscriptomic, Amplicon). Give meaningful names to conditions as for the taxonomic case.
-
-```{r}
-separateDataType <- function (mydf = mydf, metadata=metadata){
-mydf_g <- mydf %>%
-select(matches("_G|description")) %>%
-mutate(DataType="Metagenomics")
-mydf_t <- mydf %>%
-select(matches("_T|description")) %>%
-mutate(DataType="Metatranscriptomics")
-mydf_a <- mydf %>%
-select(matches("_A|description")) %>%
-mutate(DataType="Amplicon")
-
-colnames(mydf_g) <- renameSample(metadata=metadata, localdf=mydf_g)
-colnames(mydf_t) <- renameSample(metadata=metadata, localdf=mydf_t)
-colnames(mydf_a) <- renameSample(metadata=metadata, localdf=mydf_a)
-outcome <- list(genome=mydf_g, transcript=mydf_t, amplicon=mydf_a)
-return (outcome)
-}
-```
-
-Extract the count per datatype
-
-```{r}
-mf_slim <- separateDataType(mydf=mf_slim, metadata=metadata)
-mf_slim_g <- mf_slim$genome
-mf_slim_t <- mf_slim$transcript
-mf_slim_a <- mf_slim$amplicon
-```
+mf_slim_g <- mf_slim %>% 
+			select(matches("_G|description")) %>% 
+            mutate(DataType="Metagenomics")
+mf_slim_t <- mf_slim %>% 
+            select(matches("_T|description")) %>% 
+            mutate(DataType="Metatranscriptomics") 
+mf_slim_a <- mf_slim %>% 
+            select(matches("_A|description"))  %>% 
+            mutate(DataType="Amplicon")
+```  
 
 Give meaningful names to conditions as for the taxonomic case above
 
 ```{r}
-colnames(cc_slim_g) <- renameSample(metadata=metadata, localdf=cc_slim_g)
-colnames(cc_slim_t) <- renameSample(metadata=metadata, localdf=cc_slim_t)
-colnames(cc_slim_a) <- renameSample(metadata=metadata, localdf=cc_slim_a)
+colnames(mf_slim_g) <- renameSample(metadata=metadata, localdf=mf_slim_g)
+colnames(mf_slim_t) <- renameSample(metadata=metadata, localdf=mf_slim_t)
+colnames(mf_slim_a) <- renameSample(metadata=metadata, localdf=mf_slim_a)
+
+mf_slim_metagenomics <- mf_slim_g %>% 
+                        gather(condition, count, 3:ncol(mf_slim_g)-1) %>%
+                        group_by( condition) %>% 
+                        mutate(prop=count/sum(count))
+
+mf_slim_metatransciptomics <- mf_slim_t %>% 
+                              gather(condition, count, 3:ncol(mf_slim_t)-1) %>%
+                              group_by( condition) %>%
+                              mutate(prop=count/sum(count))
 ```
 
-Calculate the relative occurrence of cellular compartments per day of treatment for both metagenomic and transcriptomic data types.
-
-```{r}
-mf_slim_metagenomics <- cc_slim_g %>%
-gather(condition, count, 3:ncol(mf_slim_g)-1) %>%
-group_by( condition) %>%
-mutate(prop=count/sum(count))
-
-mf_slim_metatransciptomics <- mf_slim_t %>%
-gather(condition, count, 3:ncol(mf_slim_t)-1) %>%
-group_by( condition) %>%
-mutate(prop=count/sum(count))
-```
-Merge both metatranscriptomic and metagenomic relative occurrences of biological processes per condition to visualise the relative abundances of biological process terms that are dynamic during treatment.
+Merge both metatranscriptomic and metagenomic relative occurrences of biological processes per condition to visualise the relative abundances of biological process terms that are dynamic during treatment.  
 
 ```{r}
 mf_genomic_transcriptomics <- rbind(mf_slim_metagenomics, mf_slim_metatransciptomics)
+
 ```
 
 Barplot of relative abundance Molecular function
