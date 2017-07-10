@@ -5,6 +5,7 @@
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="This contains all material for Markdown version of BTP workshops.">
       
@@ -15,7 +16,7 @@
       
         <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.3">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
     
     
       
@@ -26,9 +27,9 @@
       <script src="../../../assets/javascripts/modernizr-1df76c4e58.js"></script>
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application-acc56dad49.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application-769c285a91.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-8817cfa535.palette.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-02c2a4388f.palette.css">
       
     
     
@@ -425,6 +426,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#author-information" title="Author Information" class="md-nav__link">
+    Author Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#introduction" title="Introduction" class="md-nav__link">
     Introduction
   </a>
@@ -441,6 +449,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-score-encoding-implemented-with-the-novaseq-platform" title="Q-score encoding implemented with the Novaseq platform" class="md-nav__link">
+    Q-score encoding implemented with the Novaseq platform
+  </a>
   
 </li>
       
@@ -920,6 +935,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#author-information" title="Author Information" class="md-nav__link">
+    Author Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#introduction" title="Introduction" class="md-nav__link">
     Introduction
   </a>
@@ -936,6 +958,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-score-encoding-implemented-with-the-novaseq-platform" title="Q-score encoding implemented with the Novaseq platform" class="md-nav__link">
+    Q-score encoding implemented with the Novaseq platform
+  </a>
   
 </li>
       
@@ -1043,6 +1072,13 @@
 <a href="http://hannonlab.cshl.edu/fastx_toolkit/">http://hannonlab.cshl.edu/fastx_toolkit/</a></p>
 <h2 id="useful-links">Useful Links<a class="headerlink" href="#useful-links" title="Permanent link">&para;</a></h2>
 <p><a href="http://en.wikipedia.org/wiki/FASTQ_format#Encoding">FASTQ Encoding</a></p>
+<hr />
+<h2 id="author-information">Author Information<a class="headerlink" href="#author-information" title="Permanent link">&para;</a></h2>
+<p><em>Primary Author(s):</em>  <br />
+Sonika Tyagi <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;&#110;&#105;&#107;&#97;&#46;&#116;&#121;&#97;&#103;&#105;&#64;&#97;&#103;&#114;&#102;&#46;&#111;&#114;&#103;&#46;&#97;&#117;">&#115;&#111;&#110;&#105;&#107;&#97;&#46;&#116;&#121;&#97;&#103;&#105;&#64;&#97;&#103;&#114;&#102;&#46;&#111;&#114;&#103;&#46;&#97;&#117;</a> </p>
+<p><em>Contributor(s):</em>  <br />
+Nandan Deshpande <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#46;&#100;&#101;&#115;&#104;&#112;&#97;&#110;&#100;&#101;&#64;&#117;&#110;&#115;&#119;&#46;&#101;&#100;&#117;&#46;&#97;&#117;">&#110;&#46;&#100;&#101;&#115;&#104;&#112;&#97;&#110;&#100;&#101;&#64;&#117;&#110;&#115;&#119;&#46;&#101;&#100;&#117;&#46;&#97;&#117;</a></p>
+<hr />
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Going on a blind date with your read set? For a better understanding of
 the consequences please check the data quality!</p>
@@ -1064,12 +1100,13 @@ screening for contamination. We can also look at other statistics such
 as, sequence length distribution, base composition, sequence complexity,
 presence of ambiguous bases etc. to assess the overall quality of the
 data set.</p>
-<p>Highly redundant coverage ($&gt;$15X) of the genome can be used to correct
+<p>Highly redundant coverage (&gt;15X) of the genome can be used to correct
 sequencing errors in the reads before assembly. Various k-mer based
 error correction methods exist but are beyond the scope of this
 tutorial.</p>
 <h3 id="quality-value-encoding-schema">Quality Value Encoding Schema<a class="headerlink" href="#quality-value-encoding-schema" title="Permanent link">&para;</a></h3>
-<p>In order to use a single character to encode Phred qualities, ASCII
+<p>Quality scoring calculates a set of predictors for each base call, and then uses the predictor values to look up the Q-score in a quality table. Quality tables are created to provide optimally accurate quality predictions for runs generated by a specific configuration of sequencing platform and version of chemistry [<a href="http://www.illumina.com">www.illumina.com</a>].
+In order to use a single character to encode Phred qualities, ASCII
 characters are used
 (<a href="http://shop.alterlinks.com/ascii-table/ascii-table-us.php">http://shop.alterlinks.com/ascii-table/ascii-table-us.php</a>). All ASCII
 characters have a decimal number associated with them but the first 32
@@ -1078,7 +1115,7 @@ Therefore, the first printable ASCII character is number 33, the
 exclamation mark (!). In Phred+33 encoded quality values the exclamation
 mark takes the Phred quality score of zero.</p>
 <p>Early Solexa (now Illumina) sequencing needed to encode negative quality
-values. Because ASCII characters $&lt;$ 33 are non-printable, using the
+values. Because ASCII characters &lt; 33 are non-printable, using the
 Phred+33 encoding was not possible. Therefore, they simply moved the
 offset from 33 to 64 thus inventing the Phred+64 encoded quality values.
 In this encoding a Phred quality of zero is denoted by the ASCII number
@@ -1098,6 +1135,60 @@ really bad Phred+64 encoded qualities.</p>
 <p>For a graphical representation of the different ASCII characters used in
 the two encoding schema see:
 <a href="http://en.wikipedia.org/wiki/FASTQ_format#Encoding">http://en.wikipedia.org/wiki/FASTQ_format#Encoding</a>.</p>
+<h2 id="q-score-encoding-implemented-with-the-novaseq-platform">Q-score encoding implemented with the Novaseq platform<a class="headerlink" href="#q-score-encoding-implemented-with-the-novaseq-platform" title="Permanent link">&para;</a></h2>
+<p>In order to reduce the data footrpints Illumina has come up with a new
+method to reduce quality score resolution and optimise data storae. The new Q-score 
+encoding now follows an 8 level mapping of individual quality scores (0-40 or &gt;40) [See Table 1].
+With the new scoring scheme the original scores 20-24 may form one bin and the quality scores in that 
+bin mapped to a new value of 22. This can be thought of as simply replacing all the 
+occurrences of scores 20, 21, 23, 24 with a new score of 22 in the output sequence.
+Illumina claims that with the new Q-scoring system the reduction in the Illumina raw sequence format (.bcl) is typically &gt; 50% and the resulting sorted BAM  les are reduced by ~30%.</p>
+<table>
+<thead>
+<tr>
+<th>Quality Score Bins</th>
+<th align="center">Mapped quality scores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N (no call)</td>
+<td align="center">N (no call)</td>
+</tr>
+<tr>
+<td>2-9</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td>10-19</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td>20-24</td>
+<td align="center">22</td>
+</tr>
+<tr>
+<td>25-29</td>
+<td align="center">27</td>
+</tr>
+<tr>
+<td>30-34</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td>35-39</td>
+<td align="center">37</td>
+</tr>
+<tr>
+<td>&gt;=40</td>
+<td align="center">40</td>
+</tr>
+<tr>
+<td>Table 1: Novaseq Q-score bins mapping</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
 <h2 id="prepare-the-environment">Prepare the Environment<a class="headerlink" href="#prepare-the-environment" title="Permanent link">&para;</a></h2>
 <p>To investigate sequence data quality we will demonstrate tools called
 FastQC and Skewer. FastQC will process and present the reports in a
@@ -1141,51 +1232,121 @@ firefox. The ’&amp;’ sign puts the job in the background.</p>
 
 <p>The report file will have a Basic Statistics table and various graphs
 and tables for different quality statistics. E.g.:</p>
-<p>[H]</p>
-<p>ll</p>
-<p>Filename &amp; qcdemo_R2.fastq.gz\
-File type &amp; Conventional base calls\
-Encoding &amp; Sanger / Illumina 1.9\
-Total Sequences &amp; 1000000\
-Filtered Sequences &amp; 0\
-Sequence length &amp; 150\
-%GC &amp; 37\</p>
-<p>[tab:badexampleuntrimmed]</p>
-<p>[H] <img alt="image" src="../images/bad_qcdemo_R2.png" />
-[fig:bad<sub>e</sub>xample<sub>u</sub>ntrimmed<sub>p</sub>lot]</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filename</td>
+<td align="center">qcdemo_R2.fastq.gz</td>
+</tr>
+<tr>
+<td>File type</td>
+<td align="center">Conventional base calls</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td align="center">Sanger / Illumina 1.9</td>
+</tr>
+<tr>
+<td>Total Sequences</td>
+<td align="center">1000000</td>
+</tr>
+<tr>
+<td>Filtered Sequences</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>Sequence length</td>
+<td align="center">150</td>
+</tr>
+<tr>
+<td>%GC</td>
+<td align="center">37</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2: Summary statistics for bad_example_untrimmed</p>
+<p><img alt="image" src="../images/bad_qcdemo_R2.png" /></p>
+<p>Figure 1:bad_example_untrimmed_QC_plot</p>
 <p>A Phred quality score (or Q-score) expresses an error probability. In
 particular, it serves as a convenient and compact way to communicate
-very small error probabilities. The probability that base $A$ is wrong
-($P(\sim A)$) is expressed by a quality score, $Q(A)$, according to the
-relationship:\
-\
-$Q(A) =-10 log10(P(\sim A))$\
-\
-The relationship between the quality score and error probability is
+very small error probabilities. The probability that base A is wrong
+(P(A)) is expressed by a quality score, Q(A), according to the
+relationship:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Q(A) =-10 log10(P(A))
+</pre></div>
+</td></tr></table>
+
+<p>The relationship between the quality score and error probability is
 demonstrated with the following table:</p>
-<p>[H]</p>
-<p>rrr</p>
-<p><strong>Quality score, Q(A)</strong> &amp; <strong>Error probability, P($\sim$A)</strong> &amp; <strong>Accuracy
-of the base call</strong>\
-10 &amp; 0.1 &amp; 90%\
-20 &amp; 0.01 &amp; 99%\
-30 &amp; 0.001 &amp; 99.9%\
-40 &amp; 0.0001 &amp; 99.99%\
-50 &amp; 0.00001 &amp; 99.999%\</p>
-<p>[tab:quality<sub>e</sub>rror<sub>p</sub>robs]</p>
+<table>
+<thead>
+<tr>
+<th>Quality score, Q(A)</th>
+<th align="center">Error probability, P(A)</th>
+<th align="left">Accuracy of base call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td align="center">0.1</td>
+<td align="left">90%</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">0.01</td>
+<td align="left">99%</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="center">0.001</td>
+<td align="left">99.9%</td>
+</tr>
+<tr>
+<td>40</td>
+<td align="center">0.0001</td>
+<td align="left">99.99%</td>
+</tr>
+<tr>
+<td>50</td>
+<td align="center">0.00001</td>
+<td align="left">99.999%</td>
+</tr>
+</tbody>
+</table>
+<p>Table 3: Quality Error Probabilities</p>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
 <p>How many sequences were there in your file? What is the read length?</p>
-<p>1,000,000. read length=150bp</p>
-<p>Does the quality score values vary throughout the read length? (hint:
-look at the ’per base sequence quality plot’)</p>
-<p>Yes. Quality scores are dropping towards the end of the reads.</p>
+</div>
+<div class="admonition success"><details><summary>Answer</summary><p>1,000,000. read length=150bp</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Does the quality score values vary throughout the read length? </p>
+</div>
+<div class="admonition hint"><details><summary>Hint</summary><p>look at the ’per base sequence quality plot’</p></details></div>
+<div class="admonition success"><details><summary>Answer</summary><p>Yes. Quality scores are dropping towards the end of the reads.</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
 <p>What is the quality score range you see?</p>
-<p>2-40</p>
-<p>At around which position do the scores start falling below Q20 for the
-25% quartile range (25%of reads below Q20)?</p>
-<p>Around 30 bp position</p>
+</div>
+<div class="admonition success"><details><summary>Answer</summary><p>2-40</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>At around which position do the scores start falling below Q20 for the 25% quartile range (25%of reads below Q20)?</p>
+</div>
+<div class="admonition success"><details><summary>Answer</summary><p>Around 30 bp position</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
 <p>How can we trim the reads to filter out the low quality data?</p>
-<p>By trimming off the bases after a fixed position of the read or by
-trimming off bases based on the quality score.</p>
+</div>
+<div class="admonition success"><details><summary>Answer</summary><p>By trimming off the bases after a fixed position of the read or by trimming off bases based on the quality score.</p></details></div>
 <h3 id="good-quality-data">Good Quality Data<a class="headerlink" href="#good-quality-data" title="Permanent link">&para;</a></h3>
 <p>View the FastQC report files <code class="codehilite">fastqc_report.html</code> to see examples of a
 good quality data and compare the quality plot with that of the
@@ -1240,47 +1401,76 @@ skewer -t 4 -l 50  -q 30 -Q 25 -m pe -o qcdemo qcdemo_R1.fastq.gz qcdemo_R2.fast
 
 <p>Run Fastqc on the quality trimmed files:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fastqc -f fastq qcdemo_R1.fastq-trimmed-pair1.fastq
-fastqc -f fastq qcdemo_R1.fastq-trimmed-pair2.fastq
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>fastqc -f fastq qcdemo-trimmed-pair1.fastq
+fastqc -f fastq qcdemo-trimmed-pair2.fastq
 </pre></div>
 </td></tr></table>
 
 <p>Visualise the fastqc results:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>firefox qcdemo_R1.fastq-trimmed-pair1_fastqc.html &amp;
-firefox qcdemo_R1.fastq-trimmed-pair2_fastqc.html&amp;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>firefox qcdemo-trimmed-pair1_fastqc.html &amp;
+firefox qcdemo-trimmed-pair2_fastqc.html &amp;
 </pre></div>
 </td></tr></table>
 
 <p>Let’s look at the quality from the second reads. The output should look
 like:</p>
-<p>[H]</p>
-<p>ll</p>
-<p>Filename &amp; qcdemo_R1.fastq-trimmed-pair2.fastq\
-File type &amp; Conventional base calls\
-Encoding &amp; Sanger / Illumina 1.9\
-Total Sequences &amp; 742262\
-Filtered Sequences &amp; 0\
-Sequence length &amp; 50-150\
-%GC &amp; 37\</p>
-<p>[tab:badexamplequalitytrimmed]</p>
-<p>[H] <img alt="image" src="../images/bad_qcdemo_R2_quality_trimmed.png" />
-[fig:bad<sub>e</sub>xample<sub>q</sub>uality<sub>t</sub>rimmed<sub>p</sub>lot]</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filename</td>
+<td align="center">qcdemo-trimmed-pair2.fastq</td>
+</tr>
+<tr>
+<td>File type</td>
+<td align="center">Conventional base calls</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td align="center">Sanger / Illumina 1.9</td>
+</tr>
+<tr>
+<td>Total Sequences</td>
+<td align="center">742262</td>
+</tr>
+<tr>
+<td>Filtered Sequences</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>Sequence length</td>
+<td align="center">50-150</td>
+</tr>
+<tr>
+<td>%GC</td>
+<td align="center">37</td>
+</tr>
+</tbody>
+</table>
+<p>Table 4:Summary Statistics of QC_demo_R1_trimmed</p>
+<p><img alt="image" src="../images/bad_qcdemo_R2_quality_trimmed.png" /></p>
+<p>Figure 2:bad_example_quality_trimmed_plot</p>
 <p>Did the number of total reads in R1 and R2 change after trimming?</p>
-<p>Quality trimming discarded $&gt;$25000 reads. However, We retain a lot of
+<p>Quality trimming discarded &gt;25000 reads. However, We retain a lot of
 maximal length reads which have good quality all the way to the ends.</p>
 <p>What reads lengths were obtained after quality based trimming?</p>
 <p>50-150</p>
-<p>Reads $&lt;$50 bp, following quality trimming, were discarded.</p>
+<p>Reads &lt;50 bp, following quality trimming, were discarded.</p>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Did you observe adapter sequences in the data?</p>
-</div>
-<details><summary><strong>Answer</strong></summary><p>No. (Hint: look at the overrepresented sequences)    </p></details><div class="admonition note">
+<details><summary>Answer</summary><p>No. (Hint: look at the overrepresented sequences)    </p></details></div>
+<div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>How can you use -a option with fastqc? (Hint: try fastqc -h).</p>
-</div>
-<details><summary><strong>Answer</strong></summary><p>Adaptors can be supplied in a file for screening.</p></details><h3 id="adapter-clipping">Adapter Clipping<a class="headerlink" href="#adapter-clipping" title="Permanent link">&para;</a></h3>
+<details><summary>Answer</summary><p>Adaptors can be supplied in a file for screening.</p></details></div>
+<h3 id="adapter-clipping">Adapter Clipping<a class="headerlink" href="#adapter-clipping" title="Permanent link">&para;</a></h3>
 <p>Sometimes sequence reads may end up getting the leftover of adapters and
 primers used in the sequencing process. It’s good practice to screen
 your data for these possible contamination for more sensitive alignment
@@ -1363,18 +1553,47 @@ firefox bad_example_trimmed01_fastqc.html &amp;
 </td></tr></table>
 
 <p>The output should look like:</p>
-<p>[H]</p>
-<p>ll</p>
-<p>Filename &amp; bad_example_trimmed01.fastq\
-File type &amp; Conventional base calls\
-Encoding &amp; Sanger / Illumina 1.9\
-Total Sequences &amp; 40000\
-Filtered Sequences &amp; 0\
-Sequence length &amp; 80\
-%GC &amp; 48\</p>
-<p>[tab:badexampletrimmed]</p>
-<p><img alt="image" src="../images/bad_example_trimmed_to_80bp.png" title="reaaaaaa" />
-[fig:bad<sub>e</sub>xample<sub>t</sub>rimmed<sub>p</sub>lot]</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filename</td>
+<td align="center">bad_example_trimmed01.fastq</td>
+</tr>
+<tr>
+<td>File type</td>
+<td align="center">Conventional base calls</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td align="center">Sanger / Illumina 1.9</td>
+</tr>
+<tr>
+<td>Total Sequences</td>
+<td align="center">40000</td>
+</tr>
+<tr>
+<td>Filtered Sequences</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>Sequence length</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td>%GC</td>
+<td align="center">48</td>
+</tr>
+</tbody>
+</table>
+<p>Table 5:Summary Statistics of bad_example_trimmed summary </p>
+<p><img alt="image" src="../images/bad_example_trimmed_to_80bp.png" title="reaaaaaa" /></p>
+<p>Figure 3: bad_example_trimmed_plot</p>
 <p>What values would you use for <code class="codehilite">-f</code> if you wanted to trim off 10 bases at
 the 5’ end of the reads?</p>
 <p><code class="codehilite">-f 11</code></p>
@@ -1451,7 +1670,7 @@ the 5’ end of the reads?</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application-b30566c560.js"></script>
+      <script src="../../../assets/javascripts/application-c35428f87f.js"></script>
       
       
       <script>app.initialize({url:{base:"../../.."}})</script>
