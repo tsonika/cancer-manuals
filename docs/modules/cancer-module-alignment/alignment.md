@@ -96,6 +96,13 @@ First, go to the right folder, where the data are stored.
 Press `q` to stop the `zless` command.
 
 ***
+## Overview of the Process
+
+![image](images/alignment_steps.png)
+
+**Figure 1:** A flow diagram showing the steps that will be performed in this practical. 
+
+***
 ## Alignment
 
 You already know that there are a number of competing tools for short
