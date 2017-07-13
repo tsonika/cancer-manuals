@@ -306,7 +306,7 @@ of these categories and total up the number in each.
 
     !!! success ""
         ??? "**Answer**"       
-            In the T[A/C]C context count.
+            In the T[T/G]C context count.
 
 <br>
 Now we have all the information that is needed for each sample we can
@@ -348,7 +348,7 @@ Visualise the results from the NMF processing by making a pdf of the
 plot
 
   ```R
-  Cairo(file="plotNumberOfSignatures.pdf", type="pdf", units="in", width=9, height=8, dpi=72)
+  pdf(file="plotNumberOfSignatures.pdf", width=9, height=8)
   plotNumberSignatures(gof_nmf)
   dev.off()
   ```
@@ -374,15 +374,18 @@ started to flatten out.
 Now run the NMF again but this time stipulating that you want to group
 the data into 3 different mutational signatures.
 
+  ```R
     sigs_nmf = identifySignatures(mm, 3, nmfDecomposition)
-
+  ```
 
 Visualise the shape of the profiles for these 3 signatures
 
-    Cairo(file="plot3Signatures.pdf", type="pdf", units="in", width=10, height=8, dpi=72)
+
+  ```R
+    pdf(file="plot3Signatures.pdf", width=10, height=8)
     plotSignatures(sigs_nmf,normalize=TRUE, percent=FALSE) + ggtitle("Somatic Signatures: NMF - Barchart") + scale_fill_brewer(palette = "Set2")
     dev.off()
-
+  ```
 
 Open up `plot3Signatures.pdf` that will have been made in the working
 directory.
@@ -468,7 +471,7 @@ dataset to show what proportion of their mutations have been assigned to
 each of the signatures.
 
   ```R
-  Cairo(file="PlotSampleContribution3Signatures.pdf", type="pdf", units="in", width=9, height=6, dpi=72)
+  pdf(file="PlotSampleContribution3Signatures.pdf", width=9, height=6)
   plotSamples(sigs_nmf, normalize=TRUE) + scale_y_continuous(breaks=seq(0, 1, 0.2), expand = c(0,0))+ theme(axis.text.x = element_text(size=6))
   dev.off()
   ```
