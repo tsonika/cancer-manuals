@@ -18,7 +18,7 @@ After completing this practical the trainee should be able to:
 ### Tools Used
 
 SAMTools:  
-http://sourceforge.net/projects/samtools/
+https://samtools.github.io/
 
 IGV:  
 http://www.broadinstitute.org/igv/
@@ -27,7 +27,7 @@ Genome Analysis Toolkit:
 http://www.broadinstitute.org/gatk/
 
 Picard:  
-http://picard.sourceforge.net/
+https://broadinstitute.github.io/picard/
 
 MuTect:  
 http://www.broadinstitute.org/cancer/cga/mutect/
@@ -36,7 +36,7 @@ Strelka:
 https://sites.google.com/site/strelkasomaticvariantcaller/
 
 VarScan2:  
-https://github.com/dkoboldt/varscan/
+https://dkoboldt.github.io/varscan/
 
 Variant Effect Predictor:  
 http://www.ensembl.org/info/docs/tools/vep
@@ -87,29 +87,43 @@ The data consists of whole genome sequencing of liver metastatic lung
 cancer (frozen), primary lung cancer (FFPE) and blood tissue of a lung
 adenocarcinoma patient (AK55).
 
+Open the Terminal and go to the `snv` working directory:
+
+    cd /home/trainee/snv/
+
+
+!!! failure ""
+    All commands entered into the terminal for this tutorial should be from
+    within the **`snv`** directory.
+
+
 The BAM alignment files are contained in the subdirectory called
 `alignment` and are located in the following subdirectories:
 
   > `normal/normal.sorted.bam` and `normal/normal.sorted.bam.bai`
 
-  > `tumor/tumor.sorted.bam` and `tumor/tumor.sorted.bam.bai`
+  > `tumour/tumor.sorted.bam` and `tumour/tumour.sorted.bam.bai`
+
+
+Check that the `alignment` directory contains the above-mentioned files by typing:
+
+    ls -l alignment/*
 
 <br>
 These files are based on subsetting the whole genomes derived from blood
 and liver metastases to the first 10Mb of chromosome 4. This will allow
 our analyses to run in a sufficient time during the workshop, but it’s
 worth being aware that this is less < 0.5% of the genome which
-highlights the length of time and resourced required to perform cancer
+highlights the length of time and resources required to perform cancer
 genomics on full genomes!
 
-The initial structure of your folders should look like this:
+The initial structure of your folders should look like this (type `ls -l`):
 
 ```
 -- alignment/             # bam files
--- normal/                # The blood sample directory containing bam files
--- tumour/                # The tumour sample directory containing bam files \\
+  -- normal/                # The blood sample directory containing bam files
+  -- tumour/                # The tumour sample directory containing bam files
 -- ref/                   # Contains reference genome files      
--- commands.sh            # cheat sheet
 ```
 
 <br>
@@ -119,42 +133,31 @@ your terminal.
 
   ```bash
   export APP_ROOT=/home/trainee/snv/Applications
-  export IGVTOOLS_PATH=$PATH:$APP_ROOT/igvtools/
+  export IGVTOOLS_PATH=$APP_ROOT/igvtools/
   export PICARD_JAR=$APP_ROOT/picard/picard.jar
-  export SNPEFF_HOME=$APP_ROOT/snpeff/
   export GATK_JAR=$APP_ROOT/gatk/GenomeAnalysisTK.jar
-  export BVATOOLS_JAR=$APP_ROOT/bvatools/bvatools-1.6-full.jar
-  export TRIMMOMATIC_JAR=$APP_ROOT/trimmomatic/trimmomatic-0.33.jar
   export STRELKA_HOME=$APP_ROOT/strelka/
-  export MUTECT_JAR=$APP_ROOT/mutect/muTect-1.1.4.jar
+  export MUTECT_JAR=$APP_ROOT/mutect/muTect-1.1.5.jar
   export VARSCAN_JAR=$APP_ROOT/varscan/VarScan.v2.4.1.jar
   export REF=/home/trainee/snv/ref
   export SNV_BASE=/home/trainee/snv
   export JAVA7=/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
   export IGV=$APP_ROOT/igv/igv.sh
+  export VEP=$APP_ROOT/ensembl-tools/scripts/variant_effect_predictor/variant_effect_predictor.pl
+  export VEP_CACHE=/mnt/workshop/data/bgdata/datasets/vepcache/70-20150729/homo_sapiens/
   ```
 
 <br>
-Open the Terminal and go to the base `/home/trainee/snv` working
-directory:
+Make sure you are in the correct directory by typing:
 
     cd $SNV_BASE
-
-!!! failure ""
-    All commands entered into the terminal for this tutorial should be from
-    within the **`/home/trainee/snv`** directory.
-
-Check that the `alignment` directory contains the above-mentioned files
-by typing:
-
-    ls alignment
 
 ***
 ##BAM Files
 
 Let’s spend some time exploring BAM files.
 
-### Step 1: Exploring BAM files
+### Exploring BAM files
 
     samtools view alignment/normal/normal.sorted.bam | head -n4
 
@@ -234,7 +237,7 @@ There are lots of possible different flags, let’s look at a few more
               of it’s properly paired mate helps the aligner in deciding where to put
               the less-certain read.
 
-You can use Samtools to filter reads as well.
+You can use `Samtools` to filter reads as well.
 
 !!! note "Question"
     How many reads mapped and unmapped were there?
@@ -256,7 +259,7 @@ You can use Samtools to filter reads as well.
             22972373
 
 
-### Step 2: Pre-processing: Indel Realignment
+### Step 1: Pre-processing: Indel Realignment
 
 The first step for this is to realign around indels and SNP dense regions.
 The Genome Analysis toolkit (`GATK`) has a tool for this called IndelRealigner.
@@ -358,10 +361,10 @@ or
             to be corrected explicitly.
 
 
-### Step 3: Pre-processing: Fixmates
+### Step 2: Pre-processing: Fixmates
 
 Some read entries don’t have their mate information written properly.  
-We use Picard to do this:
+We use `Picard` to do this:
 
 Normal sample:
   ```java
@@ -385,7 +388,7 @@ Tumour sample:
     OUTPUT=alignment/tumour/tumour.matefixed.bam
   ```
 
-### Step 4: Pre-processing: Mark Duplicates
+### Step 3: Pre-processing: Mark Duplicates
 
 !!! note "Question"
     What are duplicate reads?
@@ -421,7 +424,7 @@ Tumour sample:
             3. Brute force, compare all the sequences.
 
 <br>
-Here we will use Picard's approach:
+Here we will use `Picard`'s approach:
 
 Normal Sample:
   ```java
@@ -462,7 +465,7 @@ We can look in the metrics output to see what happened.
 
 !!! note "Question"
     Often, we have multiple libraries and when this occurs separate measures
-    are calculated for each library. Why is this important to not combine everything?
+    are calculated for each library. Why is it important to not combine everything?
 
     !!! success ""
         ??? "**Answer**"
@@ -512,6 +515,7 @@ GATK BaseRecalibrator:
           -I alignment/${i}/${i}.sorted.dup.bam
     done
 
+
 ***
 ## BAM QC
 
@@ -521,8 +525,7 @@ data again to see if everything makes sense.
 ### Step 1: BAM QC: Compute Coverage
 
 If you have data from a capture kit, you should see how well your
-targets worked. Both GATK and BVATools have depth of coverage tools.  
-Here we’ll use GATK:
+targets worked. `GATK` has a depth of coverage tool to do this:
 
     for i in normal tumour
     do
@@ -551,6 +554,9 @@ Explanation of parameters:
 In this project, coverage is expected to be 25x. Look at the coverage:
 
     less -S alignment/normal/normal.sorted.dup.recal.coverage.sample_interval_summary
+
+Type `q` to return to the prompt.
+
     less -S alignment/tumour/tumour.sorted.dup.recal.coverage.sample_interval_summary
 
 
@@ -574,7 +580,7 @@ Insert size corresponds to the size of DNA fragments sequenced. It is different
 from the gap size (= distance between reads)!
 
 <br>
-These metrics are computed using Picard:
+These metrics are computed using `Picard`:
 
     for i in normal tumour
     do
@@ -609,7 +615,7 @@ Alignment metrics tells you if your sample and your reference fit together.
 For the alignment metrics, `samtools flagstat` is very fast but
 `bwa-mem` breaks some reads into pieces, the numbers can be a bit confusing.
 
-Instead, we will use Picard to compute the metrics:
+Instead, we will use `Picard` to compute the metrics:
 
     for i in normal tumour
     do
@@ -672,9 +678,9 @@ reads supporting each allele. It expects both a normal and a tumour file in
 `SAMtools pileup` format from sequence alignments in binary alignment/map
 (BAM) format. To build a pileup file, you will need:
 
-* A SAM/BAM file (`myData.bam`) that has been sorted using the `sort` command
+* A SAM/BAM file (`*.sorted.dup.recal.bam`) that has been sorted using the `sort` command
 of `samtools`.
-* The reference sequence ("reference.fasta") to which reads were aligned, in
+* The reference sequence (`human_g1k_v37.fasta`) to which reads were aligned, in
 FASTA format.
 * The `samtools` software package.
 
@@ -685,7 +691,7 @@ FASTA format.
     -f ${REF}/human_g1k_v37.fasta \
     -r 4:1-10000000 \
     alignment/${i}/${i}.sorted.dup.recal.bam \
-    \> variant_calling/${i}.mpileup
+    > variant_calling/${i}.mpileup
   done
   ```
 
@@ -717,14 +723,11 @@ Notes on `bcftools` arguments:
 
 Now let’s try a different variant caller, `MuTect`.
 
-Note `MuTecT` only works with Java 6. Java 7 will give you an error
-if you get "Comparison method violates its general contract! you used java 7"
-
   ```java
-  java -Xmx2G -jar ${MUTECT_JAR} \
+  $JAVA7 -Xmx2G -jar ${MUTECT_JAR} \
     -T MuTect \
     -R ${REF}/human_g1k_v37.fasta \
-    -dt NONE -baq OFF --validation_strictness LENIENT -nt 2 \
+    -dt NONE -baq OFF --validation_strictness LENIENT \
     --dbsnp ${REF}/dbSnp-138_chr4.vcf \
     --input_file:normal alignment/normal/normal.sorted.dup.recal.bam \
     --input_file:tumor alignment/tumour/tumour.sorted.dup.recal.bam \
@@ -739,9 +742,10 @@ if you get "Comparison method violates its general contract! you used java 7"
 
 And finally let’s try Illumina’s `Strelka`.
 
+  ```
     cp ${STRELKA_HOME}/etc/strelka_config_bwa_default.ini .
 
-    sed 's/isSkipDepthFilters =.\*/isSkipDepthFilters = 1/g' -i strelka_config_bwa_default.ini
+    sed 's/isSkipDepthFilters =.*/isSkipDepthFilters = 1/g' -i strelka_config_bwa_default.ini
 
     ${STRELKA_HOME}/bin/configureStrelkaWorkflow.pl \
       --normal=alignment/normal/normal.sorted.dup.recal.bam \
@@ -750,20 +754,23 @@ And finally let’s try Illumina’s `Strelka`.
       --config=${SNV_BASE}/strelka_config_bwa_default.ini \
       --output-dir=variant_calling/strelka/
 
-      cd variant_calling/strelka/
-      make -j2
-      cd ../..
+    cd variant_calling/strelka/
+    make -j2
+    cd ../..
 
-      cp variant_calling/strelka/results/passed.somatic.snvs.vcf variant_calling/strelka.vcf
+    cp variant_calling/strelka/results/passed.somatic.snvs.vcf variant_calling/strelka.vcf
+  ```
 
 ### Comparing variant callers
 
 Now we have variants from all three methods. Let’s compress and index
 the VCFs for future visualisation.
 
-    for i in variant_calling/\*.vcf;do bgzip -c $i > $i.gz ; tabix -p vcf $i.gz;done
+  ```bash
+  for i in variant_calling/*.vcf; do bgzip -c $i > $i.gz ; tabix -p vcf $i.gz; done
+  ```
 
-Let’s look at a compressed VCF. Details on the VCF spec can be found [here](http://vcftools.sourceforge.net/specs.html).
+Let’s look at a compressed VCF. Details on the VCF spec can be found [here](https://vcftools.github.io/specs.html).
 
     zless -S variant_calling/varscan.snp.vcf.gz
 
@@ -779,7 +786,7 @@ Note on VCF fields:
   > **DP**: Raw read depth  
   > **GT**: Genotype  
   > **PL**: List of Phred-scaled genotype likelihoods. (min is better)  
-  > **DP**: "# high-quality bases"  
+  > **DP**: ""# high-quality bases"  
   > **SP**: Phred-scaled strand bias P-value  
   > **GQ**: Genotype Quality  
 
@@ -885,7 +892,7 @@ Let’s now run `VEP` on this VCF file to annotate each variant with its
 impact(s) on the genome.
 
   ```perl
-  perl Applications/ensembl-tools/scripts/variant_effect_predictor/variant_effect_predictor.pl -i variants/HC.chr5.60Mb.vcf.gz --vcf -o variants/HC.chr5.60Mb.vep.vcf --stats_file variants/HC.chr5.60Mb.vep.html --format vcf --offline -fork 4 --fasta ref/human_g1k_v37.fasta --fields Consequence,Codons,Amino_acids,Gene,SYMBOL,Feature,EXON,PolyPhen,SIFT,Protein_position,BIOTYPE
+  perl $VEP --dir_cache $VEP_CACHE -i variants/HC.chr5.60Mb.vcf.gz --vcf -o variants/HC.chr5.60Mb.vep.vcf --stats_file variants/HC.chr5.60Mb.vep.html --format vcf --offline -fork 4 --fasta ref/human_g1k_v37.fasta --fields Consequence,Codons,Amino_acids,Gene,SYMBOL,Feature,EXON,PolyPhen,SIFT,Protein_position,BIOTYPE
   ```
 
 <br>
@@ -1023,7 +1030,8 @@ in any of these databases.
 Now let’s open the result in a spreadsheet to look at the annotations:
 
     libreoffice --calc variants/gemini-result.tsv
-    Tick the "Tab" under "Separated by" on the dialog window that comes up.
+
+Tick the "Tab" under "Separated by" on the dialog window that comes up.  
 
 You can see that the first 14 columns contain information on the variant
 including its location, ref, alt, dbSNP ID, quality and type. Slowly
@@ -1047,7 +1055,7 @@ incredibly useful.
 see in this results file. For example, you may want all variants in a
 specific gene, in which case you would simply add "WHERE gene = ’BRCA1’"
 to your query. For complete documentation with many examples of queries,
-see the GEMINI documentation here: http://gemini.readthedocs.org.
+see the GEMINI documentation [here](http://gemini.readthedocs.org).
 
 ***
 ## References
@@ -1067,8 +1075,7 @@ see the GEMINI documentation here: http://gemini.readthedocs.org.
 This is based on an Introduction to DNA-Seq processing for cancer data
 by Mathieu Bourgey, Ph.D.  
 
-This tutorial is an adaptation of the one created by Louis letourneau
-https://github.com/lletourn/Workshops/tree/ebiCancerWorkshop201407doc/01-SNVCalling.md.
+This tutorial is an adaptation of the one created by Louis letourneau.
 Mathieu Bourgey would like to thank and acknowledge Louis for this help and for
 sharing his material. The format of the tutorial has been inspired from
 Mar Gonzalez Porta. He also wants to acknowledge Joel Fillon, Louis
