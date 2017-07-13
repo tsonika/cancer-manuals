@@ -1256,7 +1256,7 @@ of these categories and total up the number in each.</p>
 <p class="admonition-title">Question</p>
 <p>What about a mutation that looks like G[A/C]A, where should this go?</p>
 <div class="admonition hint"><details><summary><strong>Hint</strong></summary><p>Remember to reverse compliment all the nucleotides.</p></details></div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>In the T[A/C]C context count.</p></details></div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>In the T[T/G]C context count.</p></details></div>
 </div>
 <p><br>
 Now we have all the information that is needed for each sample we can
@@ -1293,7 +1293,7 @@ more replicates.</p>
 plot</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Cairo<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;plotNumberOfSignatures.pdf&quot;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;pdf&quot;</span><span class="p">,</span> units<span class="o">=</span><span class="s">&quot;in&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">9</span><span class="p">,</span> height<span class="o">=</span><span class="m">8</span><span class="p">,</span> dpi<span class="o">=</span><span class="m">72</span><span class="p">)</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pdf<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;plotNumberOfSignatures.pdf&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">9</span><span class="p">,</span> height<span class="o">=</span><span class="m">8</span><span class="p">)</span>
 plotNumberSignatures<span class="p">(</span>gof_nmf<span class="p">)</span>
 dev.off<span class="p">()</span>
 </pre></div>
@@ -1316,16 +1316,16 @@ here let’s go for 3. This is where the gradient of both curves have
 started to flatten out.</p>
 <p>Now run the NMF again but this time stipulating that you want to group
 the data into 3 different mutational signatures.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sigs_nmf = identifySignatures(mm, 3, nmfDecomposition)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  sigs_nmf <span class="o">=</span> identifySignatures<span class="p">(</span>mm<span class="p">,</span> <span class="m">3</span><span class="p">,</span> nmfDecomposition<span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
 <p>Visualise the shape of the profiles for these 3 signatures</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Cairo(file=&quot;plot3Signatures.pdf&quot;, type=&quot;pdf&quot;, units=&quot;in&quot;, width=10, height=8, dpi=72)
-plotSignatures(sigs_nmf,normalize=TRUE, percent=FALSE) + ggtitle(&quot;Somatic Signatures: NMF - Barchart&quot;) + scale_fill_brewer(palette = &quot;Set2&quot;)
-dev.off()
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  pdf<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;plot3Signatures.pdf&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">10</span><span class="p">,</span> height<span class="o">=</span><span class="m">8</span><span class="p">)</span>
+  plotSignatures<span class="p">(</span>sigs_nmf<span class="p">,</span>normalize<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> percent<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span> <span class="o">+</span> ggtitle<span class="p">(</span><span class="s">&quot;Somatic Signatures: NMF - Barchart&quot;</span><span class="p">)</span> <span class="o">+</span> scale_fill_brewer<span class="p">(</span>palette <span class="o">=</span> <span class="s">&quot;Set2&quot;</span><span class="p">)</span>
+  dev.off<span class="p">()</span>
 </pre></div>
 </td></tr></table>
 
@@ -1387,7 +1387,7 @@ dataset to show what proportion of their mutations have been assigned to
 each of the signatures.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Cairo<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;PlotSampleContribution3Signatures.pdf&quot;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;pdf&quot;</span><span class="p">,</span> units<span class="o">=</span><span class="s">&quot;in&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">9</span><span class="p">,</span> height<span class="o">=</span><span class="m">6</span><span class="p">,</span> dpi<span class="o">=</span><span class="m">72</span><span class="p">)</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pdf<span class="p">(</span>file<span class="o">=</span><span class="s">&quot;PlotSampleContribution3Signatures.pdf&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">9</span><span class="p">,</span> height<span class="o">=</span><span class="m">6</span><span class="p">)</span>
 plotSamples<span class="p">(</span>sigs_nmf<span class="p">,</span> normalize<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="o">+</span> scale_y_continuous<span class="p">(</span>breaks<span class="o">=</span><span class="kp">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0.2</span><span class="p">),</span> expand <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">))</span><span class="o">+</span> theme<span class="p">(</span>axis.text.x <span class="o">=</span> element_text<span class="p">(</span>size<span class="o">=</span><span class="m">6</span><span class="p">))</span>
 dev.off<span class="p">()</span>
 </pre></div>

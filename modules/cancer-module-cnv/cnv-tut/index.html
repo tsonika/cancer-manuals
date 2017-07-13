@@ -587,8 +587,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-pre-processing-walking-the-genome" title="Step 1: Pre-Processing – Walking the Genome" class="md-nav__link">
-    Step 1: Pre-Processing – Walking the Genome
+  <a href="#step-1-pre-processing-walking-the-genome" title="Step 1: Pre-processing – Walking the Genome" class="md-nav__link">
+    Step 1: Pre-processing – Walking the Genome
   </a>
   
 </li>
@@ -945,8 +945,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-pre-processing-walking-the-genome" title="Step 1: Pre-Processing – Walking the Genome" class="md-nav__link">
-    Step 1: Pre-Processing – Walking the Genome
+  <a href="#step-1-pre-processing-walking-the-genome" title="Step 1: Pre-processing – Walking the Genome" class="md-nav__link">
+    Step 1: Pre-processing – Walking the Genome
   </a>
   
 </li>
@@ -1050,15 +1050,15 @@ Sonika Tyagi, AGRF <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;
 analysis (CNV) on a normal/tumour pair of alignment files (BAMs)
 produced by the mapping of Illumina short read sequencing data.</p>
 <p>To ensure reasonable analysis times, we will perform the analysis on a
-heavily subset pair of BAM files. These files contain just the first
+heavily subsetted pair of BAM files. These files contain just the first
 60Mb of chromosome 5 but contain several examples of inferred copy
 number events to enable interpretation and visualisation of the copy
-number variation that is present in entire cancer genomes. Sequenza is
-the tool we will use to perform this analysis. It consists of a two
-Python pre-processing steps followed by a third step in R to infer the
+number variation that is present in entire cancer genomes. <code class="codehilite">Sequenza</code> is
+the tool we will use to perform this analysis. It consists of two
+<code class="codehilite">Python</code> pre-processing steps followed by a third step in <code class="codehilite">R</code> to infer the
 depth ratio, cellularity, ploidy and to plot the results for
 interpretation.</p>
-<p>In the second part of the tutorial we will also be using IGV to
+<p>In the second part of the tutorial we will also be using <code class="codehilite">IGV</code> to
 visualise and manually inspect the copy number variation we inferred in
 the first part for validation purposes. This section will also include a
 discussion on the importance of good quality data by highlighting the
@@ -1076,14 +1076,14 @@ the following:</p>
 <p><code class="codehilite">tumour.chr5.60Mb.bam</code> and <code class="codehilite">tumour.chr5.60Mb.bam.bai</code></p>
 </blockquote>
 <p><br>
-These files are based on subsetting the whole genomes derived from blood
-and liver metastases to the first 60Mb of chromosome 5. This will allow
+These files are based on subsetting the whole genomes derived from <code class="codehilite">blood</code>
+and <code class="codehilite">liver metastases</code> to the first 60Mb of chromosome 5. This will allow
 our analyses to run in a sufficient time during the workshop, but it’s
 worth being aware that we are analysing just 1.9% of the genome which
 will highlight the length of time and resources required to perform
 cancer genomics on full genomes!</p>
-<p>Open the Terminal and go to the <code class="codehilite">CNV</code> working directory:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd cnv/
+<p>Open the Terminal and go to the <code class="codehilite">cnv</code> working directory:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd /home/trainee/cnv/
 </pre></div>
 </td></tr></table>
 
@@ -1093,26 +1093,34 @@ within the <strong><code class="codehilite">cnv</code></strong> directory.</p>
 </div>
 <p>Check that the <code class="codehilite">data</code> directory contains the above-mentioned files by
 typing:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ll data
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ls -l data
 </pre></div>
 </td></tr></table>
 
-<p>All commands used in this tutorial can be copy/pasted from the
-commands.sh file in the <code class="codehilite">cnv</code> directory.</p>
 <hr />
 <h2 id="sequenza-cnv-analysis">Sequenza CNV Analysis<a class="headerlink" href="#sequenza-cnv-analysis" title="Permanent link">&para;</a></h2>
 <p>Sequenza is run in three steps. The first pre-processing step is run on
 the final normal and tumour mapped data (BAM files) in order to walk the
-genome in a pileup format (automatically generated by samtools). This
+genome in a pileup format (automatically generated by <code class="codehilite">samtools</code>). This
 first step finds high quality sites in the genomes and extracts their
 depth and genotype in the normal genome and calculates the variant
 alleles and allele frequencies in the tumour genome. The second step is
 to perform a binning on these sites to save space and analysis time in
-the third step. Finally, the third step is run in R normalise the depth
+the third step. Finally, the third step is run in <code class="codehilite">R</code> to normalise the depth
 ratio between the normal/tumour genomes, infer cellularity and ploidy
 and graphically output results for interpretation.</p>
-<h3 id="step-1-pre-processing-walking-the-genome">Step 1: Pre-Processing – Walking the Genome<a class="headerlink" href="#step-1-pre-processing-walking-the-genome" title="Permanent link">&para;</a></h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pypy software/sequenza/sequenza-utils.py bam2seqz -n data/normal.chr5.60Mb.bam -t data/tumour.chr5.60Mb.bam --fasta assets/human_g1k_v37.fasta -gc assets/human_g1k_v37.gc50Base.txt.gz -C 5:1-60000000 | gzip &gt; stage1.seqz.gz
+<h3 id="step-1-pre-processing-walking-the-genome">Step 1: Pre-processing – Walking the Genome<a class="headerlink" href="#step-1-pre-processing-walking-the-genome" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pypy software/sequenza/sequenza-utils.py bam2seqz \
+-n data/normal.chr5.60Mb.bam \
+-t data/tumour.chr5.60Mb.bam \
+--fasta assets/human_g1k_v37.fasta \
+-gc assets/human_g1k_v37.gc50Base.txt.gz \
+-C 5:1-60000000 | gzip &gt; stage1.seqz.gz
 </pre></div>
 </td></tr></table>
 
@@ -1135,14 +1143,14 @@ command, to make sure it is running open a new Terminal tab with
 <code class="codehilite">Shift + Control + T</code> (or from the menu with File then Open Tab) and type
 the command <code class="codehilite">top</code>. You should see the top line being the command ’pypy’ with
 a % CPU usage of 98/99%. Press <code class="codehilite">q</code> to quit out of this process view and go
-back to the tab running Sequenza. If everything is running correctly, it
-will take approximately 40 minutes to run. Go have a coffee!</p>
+back to the tab running <code class="codehilite">Sequenza</code>. <strong>If everything is running correctly, it
+will take approximately 40 minutes to run</strong>. Go have a coffee!</p>
 </div>
 <p><br>
 Once the command is done you will be returned to the terminal prompt.
-Make sure the output file is the correct size by typing <code class="codehilite">ll -h</code> from the
-Terminal window that you ran Sequenza from, there should be a file
-called <code class="codehilite">stage1.seqz.gz</code> of the size 326M.</p>
+Make sure the output file is the correct size by typing <code class="codehilite">ls -lh</code> from the
+Terminal window that you ran <code class="codehilite">Sequenza</code> from, there should be a file
+called <code class="codehilite">stage1.seqz.gz</code> of the size ~395M.</p>
 <p>You can look at the first few lines of the output in the file
 <code class="codehilite">stage1.seqz.gz</code> with:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>zcat stage1.seqz.gz <span class="p">|</span> head -n <span class="m">20</span>
@@ -1156,7 +1164,11 @@ the location.</p>
 <p>The binning step takes the rows of genomic positions and compresses them
 down to 1 row for every 200 rows previously. This massively reduces the
 file size and processing time in the third step.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pypy software/sequenza/sequenza-utils.py seqz-binning -w 200 -s stage1.seqz.gz | gzip &gt; stage2.seqz.gz
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pypy software/sequenza/sequenza-utils.py seqz-binning \
+-w 200 \
+-s stage1.seqz.gz | gzip &gt; stage2.seqz.gz
 </pre></div>
 </td></tr></table>
 
@@ -1167,15 +1179,15 @@ file size and processing time in the third step.</p>
 </blockquote>
 <p>This step should take approximately 4 minutes to complete.</p>
 <h3 id="step-3-running-sequenza-algorithms-and-plotting-results">Step 3: Running Sequenza Algorithms and Plotting Results<a class="headerlink" href="#step-3-running-sequenza-algorithms-and-plotting-results" title="Permanent link">&para;</a></h3>
-<p>We will now perform the CNV analysis and output the results using the R
+<p>We will now perform the CNV analysis and output the results using the <code class="codehilite">R</code>
 part of Sequenza.</p>
-<p>Open the R terminal:</p>
+<p>Open the <code class="codehilite">R</code> terminal:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>R
 </pre></div>
 </td></tr></table>
 
-<p>You should now see the R prompt identified with &ldquo;&gt;&rdquo;.</p>
-<p>Run the Sequenza R commands:</p>
+<p>You should now see the <code class="codehilite">R</code> prompt identified with &ldquo;&gt;&rdquo;.</p>
+<p>Run the Sequenza <code class="codehilite">R</code> commands:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1190,14 +1202,14 @@ sequenza.results<span class="p">(</span>sequenza.extract <span class="o">=</span
 </pre></div>
 </td></tr></table>
 
-<p>If every command ran successfully, you will now have a <code class="codehilite">sequenza_results</code>
-folder containing 13 files.</p>
-<p>Quit R:  </p>
+<p>Quit <code class="codehilite">R</code>:  </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kp">q</span><span class="p">()</span>
 </pre></div>
 </td></tr></table>
 
 <p>Then enter <code class="codehilite">n</code> at the &ldquo;Save workspace image&rdquo; prompt.</p>
+<p>If every command ran successfully, you will now have a <code class="codehilite">sequenza_results</code>
+folder containing 13 files (type <code class="codehilite">ls -l sequenza_results/</code>).</p>
 <hr />
 <h2 id="sequenza-analysis-results-and-visualisation">Sequenza Analysis Results and Visualisation<a class="headerlink" href="#sequenza-analysis-results-and-visualisation" title="Permanent link">&para;</a></h2>
 <p>One of the first and most important estimates that Sequenza provides is
@@ -1267,7 +1279,7 @@ You can see that there are a number of copy number events across the
 genome and our genomic block (the first 60Mb of chromosome 5) is
 inferred as mostly copy number 4 followed by a reduction to copy number
 2, rather than 2 to 1 as we saw in the output we generated. The reason
-for this is that Sequenza uses the genome-wide depth ratio and BAF in
+for this is that <code class="codehilite">Sequenza</code> uses the genome-wide depth ratio and BAF in
 order to estimate copy number, if you ask it to analyse a small block
 mostly at copy number 4 with a small reduction to copy number 2, the
 most likely scenario in lieu of more data is that this is a copy number
@@ -1277,7 +1289,7 @@ plots of model fit (<code class="codehilite">CanGenWorkshop_model_fit.pdf</code>
 cellularity/ploidy contours (<code class="codehilite">CanGenWorkshop_CP_contours.pdf</code>) in order
 to decide if you believe Sequenza’s inference of the copy numbers. Have
 a look at these for yourself if you want to get a better idea of how
-Sequenza makes its inferences and conclusions.</p>
+<code class="codehilite">Sequenza</code> makes its inferences and conclusions.</p>
 <hr />
 <h2 id="cnv-visualisationconfirmation-in-igv">CNV Visualisation/Confirmation in IGV<a class="headerlink" href="#cnv-visualisationconfirmation-in-igv" title="Permanent link">&para;</a></h2>
 <p>Let’s see if we can visualise one of the CNV events where copy number
@@ -1295,7 +1307,7 @@ There is only one at a copy number of 4 (CNt column) and it starts at
 21,051,700 to 21,522,065 which is 470kb and corresponds to the small block
 we see in the genome view PDF.</p>
 <p>Quit out of viewing the segments file by pressing <code class="codehilite">q</code>.</p>
-<p>We will now open IGV and see if we can observe the predicted increase in
+<p>We will now open <code class="codehilite">IGV</code> and see if we can observe the predicted increase in
 copy number within these genomic coordinates.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>/home/trainee/snv/Applications/igv/igv.sh
 </pre></div>

@@ -575,29 +575,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-exploring-bam-files" title="Step 1: Exploring BAM files" class="md-nav__link">
-    Step 1: Exploring BAM files
+  <a href="#exploring-bam-files" title="Exploring BAM files" class="md-nav__link">
+    Exploring BAM files
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-pre-processing-indel-realignment" title="Step 2: Pre-processing: Indel Realignment" class="md-nav__link">
-    Step 2: Pre-processing: Indel Realignment
+  <a href="#step-1-pre-processing-indel-realignment" title="Step 1: Pre-processing: Indel Realignment" class="md-nav__link">
+    Step 1: Pre-processing: Indel Realignment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-pre-processing-fixmates" title="Step 3: Pre-processing: Fixmates" class="md-nav__link">
-    Step 3: Pre-processing: Fixmates
+  <a href="#step-2-pre-processing-fixmates" title="Step 2: Pre-processing: Fixmates" class="md-nav__link">
+    Step 2: Pre-processing: Fixmates
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-pre-processing-mark-duplicates" title="Step 4: Pre-processing: Mark Duplicates" class="md-nav__link">
-    Step 4: Pre-processing: Mark Duplicates
+  <a href="#step-3-pre-processing-mark-duplicates" title="Step 3: Pre-processing: Mark Duplicates" class="md-nav__link">
+    Step 3: Pre-processing: Mark Duplicates
   </a>
   
 </li>
@@ -1048,29 +1048,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-exploring-bam-files" title="Step 1: Exploring BAM files" class="md-nav__link">
-    Step 1: Exploring BAM files
+  <a href="#exploring-bam-files" title="Exploring BAM files" class="md-nav__link">
+    Exploring BAM files
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-pre-processing-indel-realignment" title="Step 2: Pre-processing: Indel Realignment" class="md-nav__link">
-    Step 2: Pre-processing: Indel Realignment
+  <a href="#step-1-pre-processing-indel-realignment" title="Step 1: Pre-processing: Indel Realignment" class="md-nav__link">
+    Step 1: Pre-processing: Indel Realignment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-pre-processing-fixmates" title="Step 3: Pre-processing: Fixmates" class="md-nav__link">
-    Step 3: Pre-processing: Fixmates
+  <a href="#step-2-pre-processing-fixmates" title="Step 2: Pre-processing: Fixmates" class="md-nav__link">
+    Step 2: Pre-processing: Fixmates
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-pre-processing-mark-duplicates" title="Step 4: Pre-processing: Mark Duplicates" class="md-nav__link">
-    Step 4: Pre-processing: Mark Duplicates
+  <a href="#step-3-pre-processing-mark-duplicates" title="Step 3: Pre-processing: Mark Duplicates" class="md-nav__link">
+    Step 3: Pre-processing: Mark Duplicates
   </a>
   
 </li>
@@ -1237,19 +1237,19 @@
 <h2 id="resources-youll-be-using">Resources You’ll be Using<a class="headerlink" href="#resources-youll-be-using" title="Permanent link">&para;</a></h2>
 <h3 id="tools-used">Tools Used<a class="headerlink" href="#tools-used" title="Permanent link">&para;</a></h3>
 <p>SAMTools:<br />
-<a href="http://sourceforge.net/projects/samtools/">http://sourceforge.net/projects/samtools/</a></p>
+<a href="https://samtools.github.io/">https://samtools.github.io/</a></p>
 <p>IGV:<br />
 <a href="http://www.broadinstitute.org/igv/">http://www.broadinstitute.org/igv/</a></p>
 <p>Genome Analysis Toolkit:<br />
 <a href="http://www.broadinstitute.org/gatk/">http://www.broadinstitute.org/gatk/</a></p>
 <p>Picard:<br />
-<a href="http://picard.sourceforge.net/">http://picard.sourceforge.net/</a></p>
+<a href="https://broadinstitute.github.io/picard/">https://broadinstitute.github.io/picard/</a></p>
 <p>MuTect:<br />
 <a href="http://www.broadinstitute.org/cancer/cga/mutect/">http://www.broadinstitute.org/cancer/cga/mutect/</a></p>
 <p>Strelka:<br />
 <a href="https://sites.google.com/site/strelkasomaticvariantcaller/">https://sites.google.com/site/strelkasomaticvariantcaller/</a></p>
 <p>VarScan2:<br />
-<a href="https://github.com/dkoboldt/varscan/">https://github.com/dkoboldt/varscan/</a></p>
+<a href="https://dkoboldt.github.io/varscan/">https://dkoboldt.github.io/varscan/</a></p>
 <p>Variant Effect Predictor:<br />
 <a href="http://www.ensembl.org/info/docs/tools/vep">http://www.ensembl.org/info/docs/tools/vep</a></p>
 <p>GEMINI:<br />
@@ -1285,29 +1285,41 @@ familial cancer history.</p>
 <p>The data consists of whole genome sequencing of liver metastatic lung
 cancer (frozen), primary lung cancer (FFPE) and blood tissue of a lung
 adenocarcinoma patient (AK55).</p>
+<p>Open the Terminal and go to the <code class="codehilite">snv</code> working directory:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd /home/trainee/snv/
+</pre></div>
+</td></tr></table>
+
+<div class="admonition failure">
+<p>All commands entered into the terminal for this tutorial should be from
+within the <strong><code class="codehilite">snv</code></strong> directory.</p>
+</div>
 <p>The BAM alignment files are contained in the subdirectory called
 <code class="codehilite">alignment</code> and are located in the following subdirectories:</p>
 <blockquote>
 <p><code class="codehilite">normal/normal.sorted.bam</code> and <code class="codehilite">normal/normal.sorted.bam.bai</code></p>
-<p><code class="codehilite">tumor/tumor.sorted.bam</code> and <code class="codehilite">tumor/tumor.sorted.bam.bai</code></p>
+<p><code class="codehilite">tumour/tumor.sorted.bam</code> and <code class="codehilite">tumour/tumour.sorted.bam.bai</code></p>
 </blockquote>
+<p>Check that the <code class="codehilite">alignment</code> directory contains the above-mentioned files by typing:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ls -l alignment/*
+</pre></div>
+</td></tr></table>
+
 <p><br>
 These files are based on subsetting the whole genomes derived from blood
 and liver metastases to the first 10Mb of chromosome 4. This will allow
 our analyses to run in a sufficient time during the workshop, but it’s
 worth being aware that this is less &lt; 0.5% of the genome which
-highlights the length of time and resourced required to perform cancer
+highlights the length of time and resources required to perform cancer
 genomics on full genomes!</p>
-<p>The initial structure of your folders should look like this:</p>
+<p>The initial structure of your folders should look like this (type <code class="codehilite">ls -l</code>):</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>-- alignment/             # bam files
--- normal/                # The blood sample directory containing bam files
--- tumour/                # The tumour sample directory containing bam files \\
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>-- alignment/             # bam files
+  -- normal/                # The blood sample directory containing bam files
+  -- tumour/                # The tumour sample directory containing bam files
 -- ref/                   # Contains reference genome files      
--- commands.sh            # cheat sheet
 </pre></div>
 </td></tr></table>
 
@@ -1327,45 +1339,32 @@ your terminal.</p>
 10
 11
 12
-13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">APP_ROOT</span><span class="o">=</span>/home/trainee/snv/Applications
-<span class="nb">export</span> <span class="nv">IGVTOOLS_PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$APP_ROOT</span>/igvtools/
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">APP_ROOT</span><span class="o">=</span>/home/trainee/snv/Applications
+<span class="nb">export</span> <span class="nv">IGVTOOLS_PATH</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/igvtools/
 <span class="nb">export</span> <span class="nv">PICARD_JAR</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/picard/picard.jar
-<span class="nb">export</span> <span class="nv">SNPEFF_HOME</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/snpeff/
 <span class="nb">export</span> <span class="nv">GATK_JAR</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/gatk/GenomeAnalysisTK.jar
-<span class="nb">export</span> <span class="nv">BVATOOLS_JAR</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/bvatools/bvatools-1.6-full.jar
-<span class="nb">export</span> <span class="nv">TRIMMOMATIC_JAR</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/trimmomatic/trimmomatic-0.33.jar
 <span class="nb">export</span> <span class="nv">STRELKA_HOME</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/strelka/
-<span class="nb">export</span> <span class="nv">MUTECT_JAR</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/mutect/muTect-1.1.4.jar
+<span class="nb">export</span> <span class="nv">MUTECT_JAR</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/mutect/muTect-1.1.5.jar
 <span class="nb">export</span> <span class="nv">VARSCAN_JAR</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/varscan/VarScan.v2.4.1.jar
 <span class="nb">export</span> <span class="nv">REF</span><span class="o">=</span>/home/trainee/snv/ref
 <span class="nb">export</span> <span class="nv">SNV_BASE</span><span class="o">=</span>/home/trainee/snv
 <span class="nb">export</span> <span class="nv">JAVA7</span><span class="o">=</span>/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
 <span class="nb">export</span> <span class="nv">IGV</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/igv/igv.sh
+<span class="nb">export</span> <span class="nv">VEP</span><span class="o">=</span><span class="nv">$APP_ROOT</span>/ensembl-tools/scripts/variant_effect_predictor/variant_effect_predictor.pl
+<span class="nb">export</span> <span class="nv">VEP_CACHE</span><span class="o">=</span>/mnt/workshop/data/bgdata/datasets/vepcache/70-20150729/homo_sapiens/
 </pre></div>
 </td></tr></table>
 
 <p><br>
-Open the Terminal and go to the base <code class="codehilite">/home/trainee/snv</code> working
-directory:</p>
+Make sure you are in the correct directory by typing:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd $SNV_BASE
-</pre></div>
-</td></tr></table>
-
-<div class="admonition failure">
-<p>All commands entered into the terminal for this tutorial should be from
-within the <strong><code class="codehilite">/home/trainee/snv</code></strong> directory.</p>
-</div>
-<p>Check that the <code class="codehilite">alignment</code> directory contains the above-mentioned files
-by typing:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ls alignment
 </pre></div>
 </td></tr></table>
 
 <hr />
 <h2 id="bam-files">BAM Files<a class="headerlink" href="#bam-files" title="Permanent link">&para;</a></h2>
 <p>Let’s spend some time exploring BAM files.</p>
-<h3 id="step-1-exploring-bam-files">Step 1: Exploring BAM files<a class="headerlink" href="#step-1-exploring-bam-files" title="Permanent link">&para;</a></h3>
+<h3 id="exploring-bam-files">Exploring BAM files<a class="headerlink" href="#exploring-bam-files" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>samtools view alignment/normal/normal.sorted.bam | head -n4
 </pre></div>
 </td></tr></table>
@@ -1430,7 +1429,7 @@ soft clipping reported.</p></details></div>
   of it’s properly paired mate helps the aligner in deciding where to put
   the less-certain read.</p></details></div>
 </div>
-<p>You can use Samtools to filter reads as well.</p>
+<p>You can use <code class="codehilite">Samtools</code> to filter reads as well.</p>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>How many reads mapped and unmapped were there?</p>
@@ -1444,7 +1443,7 @@ soft clipping reported.</p></details></div>
 </td></tr></table>
 22972373</p></details></div>
 </div>
-<h3 id="step-2-pre-processing-indel-realignment">Step 2: Pre-processing: Indel Realignment<a class="headerlink" href="#step-2-pre-processing-indel-realignment" title="Permanent link">&para;</a></h3>
+<h3 id="step-1-pre-processing-indel-realignment">Step 1: Pre-processing: Indel Realignment<a class="headerlink" href="#step-1-pre-processing-indel-realignment" title="Permanent link">&para;</a></h3>
 <p>The first step for this is to realign around indels and SNP dense regions.
 The Genome Analysis toolkit (<code class="codehilite">GATK</code>) has a tool for this called IndelRealigner.
 It basically runs in 2 steps:  </p>
@@ -1540,9 +1539,9 @@ reconstructing haplotypes (e.g. through reassembly), the problem of
 multiple valid representations is handled internally and does not need
 to be corrected explicitly.</p></details></div>
 </div>
-<h3 id="step-3-pre-processing-fixmates">Step 3: Pre-processing: Fixmates<a class="headerlink" href="#step-3-pre-processing-fixmates" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-pre-processing-fixmates">Step 2: Pre-processing: Fixmates<a class="headerlink" href="#step-2-pre-processing-fixmates" title="Permanent link">&para;</a></h3>
 <p>Some read entries don’t have their mate information written properly.<br />
-We use Picard to do this:</p>
+We use <code class="codehilite">Picard</code> to do this:</p>
 <p>Normal sample:
   <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1575,7 +1574,7 @@ We use Picard to do this:</p>
   <span class="n">OUTPUT</span><span class="o">=</span><span class="n">alignment</span><span class="o">/</span><span class="n">tumour</span><span class="o">/</span><span class="n">tumour</span><span class="o">.</span><span class="na">matefixed</span><span class="o">.</span><span class="na">bam</span>
 </pre></div>
 </td></tr></table></p>
-<h3 id="step-4-pre-processing-mark-duplicates">Step 4: Pre-processing: Mark Duplicates<a class="headerlink" href="#step-4-pre-processing-mark-duplicates" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-pre-processing-mark-duplicates">Step 3: Pre-processing: Mark Duplicates<a class="headerlink" href="#step-3-pre-processing-mark-duplicates" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>What are duplicate reads?</p>
@@ -1593,7 +1592,7 @@ the same (optical duplicates)</li></ul></details></div>
 <div class="admonition success"><details><summary><strong>Answer</strong></summary><ol><li><p>Picard and samtools uses the alignment positions:  </p><ul><li>Both 5’ ends of both reads need to have the same positions.</li><li>Each reads have to be on the same strand as well.</li></ul></li><li><p>Another method is to use a kmer approach:</p><ul><li>Take a part of both ends of the fragment.</li><li>Build a hash table.</li><li>Count the similar hits.</li></ul></li><li><p>Brute force, compare all the sequences.</p></li></ol></details></div>
 </div>
 <p><br>
-Here we will use Picard&rsquo;s approach:</p>
+Here we will use <code class="codehilite">Picard</code>&lsquo;s approach:</p>
 <p>Normal Sample:
   <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1644,7 +1643,7 @@ We can look in the metrics output to see what happened.</p>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Often, we have multiple libraries and when this occurs separate measures
-are calculated for each library. Why is this important to not combine everything?</p>
+are calculated for each library. Why is it important to not combine everything?</p>
 <div class="admonition success"><details><summary><strong>Answer</strong></summary><ul><li>Each library represents a set of different DNA fragments.</li><li>Each library involves different PCR reactions</li></ul><p>PCR duplicates can not occur between fragments of two different
 libraries. However, similar fragments could be found between
 libraries when the coverage is high.</p></details></div>
@@ -1710,8 +1709,7 @@ Base Quality Recalibration runs in 2 steps:</p>
 data again to see if everything makes sense.</p>
 <h3 id="step-1-bam-qc-compute-coverage">Step 1: BAM QC: Compute Coverage<a class="headerlink" href="#step-1-bam-qc-compute-coverage" title="Permanent link">&para;</a></h3>
 <p>If you have data from a capture kit, you should see how well your
-targets worked. Both GATK and BVATools have depth of coverage tools.<br />
-Here we’ll use GATK:</p>
+targets worked. <code class="codehilite">GATK</code> has a depth of coverage tool to do this:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1753,9 +1751,12 @@ Here we’ll use GATK:</p>
 </blockquote>
 <p><br>
 In this project, coverage is expected to be 25x. Look at the coverage:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>less -S alignment/normal/normal.sorted.dup.recal.coverage.sample_interval_summary
-less -S alignment/tumour/tumour.sorted.dup.recal.coverage.sample_interval_summary
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>less -S alignment/normal/normal.sorted.dup.recal.coverage.sample_interval_summary
+</pre></div>
+</td></tr></table>
+
+<p>Type <code class="codehilite">q</code> to return to the prompt.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>less -S alignment/tumour/tumour.sorted.dup.recal.coverage.sample_interval_summary
 </pre></div>
 </td></tr></table>
 
@@ -1770,7 +1771,7 @@ different that means something is wrong in your coverage.</p></li></ul></details
 <p>Insert size corresponds to the size of DNA fragments sequenced. It is different
 from the gap size (= distance between reads)!</p>
 <p><br>
-These metrics are computed using Picard:</p>
+These metrics are computed using <code class="codehilite">Picard</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1811,7 +1812,7 @@ normal sample (405 vs. 329).</p></details></div>
 <p>Alignment metrics tells you if your sample and your reference fit together.</p>
 <p>For the alignment metrics, <code class="codehilite">samtools flagstat</code> is very fast but
 <code class="codehilite">bwa-mem</code> breaks some reads into pieces, the numbers can be a bit confusing.</p>
-<p>Instead, we will use Picard to compute the metrics:</p>
+<p>Instead, we will use <code class="codehilite">Picard</code> to compute the metrics:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1877,9 +1878,9 @@ reads supporting each allele. It expects both a normal and a tumour file in
 <code class="codehilite">SAMtools pileup</code> format from sequence alignments in binary alignment/map
 (BAM) format. To build a pileup file, you will need:</p>
 <ul>
-<li>A SAM/BAM file (<code class="codehilite">myData.bam</code>) that has been sorted using the <code class="codehilite">sort</code> command
+<li>A SAM/BAM file (<code class="codehilite">*.sorted.dup.recal.bam</code>) that has been sorted using the <code class="codehilite">sort</code> command
 of <code class="codehilite">samtools</code>.</li>
-<li>The reference sequence (&ldquo;reference.fasta&rdquo;) to which reads were aligned, in
+<li>The reference sequence (<code class="codehilite">human_g1k_v37.fasta</code>) to which reads were aligned, in
 FASTA format.</li>
 <li>The <code class="codehilite">samtools</code> software package.</li>
 </ul>
@@ -1896,7 +1897,7 @@ samtools mpileup -L <span class="m">1000</span> -B -q <span class="m">1</span> <
   -f <span class="si">${</span><span class="nv">REF</span><span class="si">}</span>/human_g1k_v37.fasta <span class="se">\</span>
   -r <span class="m">4</span>:1-10000000 <span class="se">\</span>
   alignment/<span class="si">${</span><span class="nv">i</span><span class="si">}</span>/<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.sorted.dup.recal.bam <span class="se">\</span>
-  <span class="se">\&gt;</span> variant_calling/<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.mpileup
+  &gt; variant_calling/<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.mpileup
 <span class="k">done</span>
 </pre></div>
 </td></tr></table>
@@ -1932,8 +1933,6 @@ samtools mpileup -L <span class="m">1000</span> -B -q <span class="m">1</span> <
 </td></tr></table></p>
 <h3 id="mutect">MuTect<a class="headerlink" href="#mutect" title="Permanent link">&para;</a></h3>
 <p>Now let’s try a different variant caller, <code class="codehilite">MuTect</code>.</p>
-<p>Note <code class="codehilite">MuTecT</code> only works with Java 6. Java 7 will give you an error
-if you get &ldquo;Comparison method violates its general contract! you used java 7&rdquo;</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1945,10 +1944,10 @@ if you get &ldquo;Comparison method violates its general contract! you used java
  9
 10
 11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">Xmx2G</span> <span class="o">-</span><span class="n">jar</span> <span class="n">$</span><span class="o">{</span><span class="n">MUTECT_JAR</span><span class="o">}</span> <span class="err">\</span>
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">$JAVA7</span> <span class="o">-</span><span class="n">Xmx2G</span> <span class="o">-</span><span class="n">jar</span> <span class="n">$</span><span class="o">{</span><span class="n">MUTECT_JAR</span><span class="o">}</span> <span class="err">\</span>
   <span class="o">-</span><span class="n">T</span> <span class="n">MuTect</span> <span class="err">\</span>
   <span class="o">-</span><span class="n">R</span> <span class="n">$</span><span class="o">{</span><span class="n">REF</span><span class="o">}/</span><span class="n">human_g1k_v37</span><span class="o">.</span><span class="na">fasta</span> <span class="err">\</span>
-  <span class="o">-</span><span class="n">dt</span> <span class="n">NONE</span> <span class="o">-</span><span class="n">baq</span> <span class="n">OFF</span> <span class="o">--</span><span class="n">validation_strictness</span> <span class="n">LENIENT</span> <span class="o">-</span><span class="n">nt</span> <span class="mi">2</span> <span class="err">\</span>
+  <span class="o">-</span><span class="n">dt</span> <span class="n">NONE</span> <span class="o">-</span><span class="n">baq</span> <span class="n">OFF</span> <span class="o">--</span><span class="n">validation_strictness</span> <span class="n">LENIENT</span> <span class="err">\</span>
   <span class="o">--</span><span class="n">dbsnp</span> <span class="n">$</span><span class="o">{</span><span class="n">REF</span><span class="o">}/</span><span class="n">dbSnp</span><span class="o">-</span><span class="mi">138_</span><span class="n">chr4</span><span class="o">.</span><span class="na">vcf</span> <span class="err">\</span>
   <span class="o">--</span><span class="n">input_file</span><span class="o">:</span><span class="n">normal</span> <span class="n">alignment</span><span class="o">/</span><span class="n">normal</span><span class="o">/</span><span class="n">normal</span><span class="o">.</span><span class="na">sorted</span><span class="o">.</span><span class="na">dup</span><span class="o">.</span><span class="na">recal</span><span class="o">.</span><span class="na">bam</span> <span class="err">\</span>
   <span class="o">--</span><span class="n">input_file</span><span class="o">:</span><span class="n">tumor</span> <span class="n">alignment</span><span class="o">/</span><span class="n">tumour</span><span class="o">/</span><span class="n">tumour</span><span class="o">.</span><span class="na">sorted</span><span class="o">.</span><span class="na">dup</span><span class="o">.</span><span class="na">recal</span><span class="o">.</span><span class="na">bam</span> <span class="err">\</span>
@@ -1977,16 +1976,16 @@ if you get &ldquo;Comparison method violates its general contract! you used java
 13
 14
 15
-16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cp <span class="cp">${</span><span class="n">STRELKA_HOME</span><span class="cp">}</span>/etc/strelka_config_bwa_default.ini .
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  cp <span class="cp">${</span><span class="n">STRELKA_HOME</span><span class="cp">}</span>/etc/strelka_config_bwa_default.ini .
 
-sed &#39;s/isSkipDepthFilters =.\*/isSkipDepthFilters = 1/g&#39; -i strelka_config_bwa_default.ini
+  sed &#39;s/isSkipDepthFilters =.*/isSkipDepthFilters = 1/g&#39; -i strelka_config_bwa_default.ini
 
-<span class="cp">${</span><span class="n">STRELKA_HOME</span><span class="cp">}</span>/bin/configureStrelkaWorkflow.pl \
-  --normal=alignment/normal/normal.sorted.dup.recal.bam \
-  --tumor=alignment/tumour/tumour.sorted.dup.recal.bam \
-  --ref=<span class="cp">${</span><span class="n">REF</span><span class="cp">}</span>/human_g1k_v37.fasta \
-  --config=<span class="cp">${</span><span class="n">SNV_BASE</span><span class="cp">}</span>/strelka_config_bwa_default.ini \
-  --output-dir=variant_calling/strelka/
+  <span class="cp">${</span><span class="n">STRELKA_HOME</span><span class="cp">}</span>/bin/configureStrelkaWorkflow.pl \
+    --normal=alignment/normal/normal.sorted.dup.recal.bam \
+    --tumor=alignment/tumour/tumour.sorted.dup.recal.bam \
+    --ref=<span class="cp">${</span><span class="n">REF</span><span class="cp">}</span>/human_g1k_v37.fasta \
+    --config=<span class="cp">${</span><span class="n">SNV_BASE</span><span class="cp">}</span>/strelka_config_bwa_default.ini \
+    --output-dir=variant_calling/strelka/
 
   cd variant_calling/strelka/
   make -j2
@@ -1999,11 +1998,11 @@ sed &#39;s/isSkipDepthFilters =.\*/isSkipDepthFilters = 1/g&#39; -i strelka_conf
 <h3 id="comparing-variant-callers">Comparing variant callers<a class="headerlink" href="#comparing-variant-callers" title="Permanent link">&para;</a></h3>
 <p>Now we have variants from all three methods. Let’s compress and index
 the VCFs for future visualisation.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>for i in variant_calling/\*.vcf;do bgzip -c $i &gt; $i.gz ; tabix -p vcf $i.gz;done
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> i in variant_calling/*.vcf<span class="p">;</span> <span class="k">do</span> bgzip -c <span class="nv">$i</span> &gt; <span class="nv">$i</span>.gz <span class="p">;</span> tabix -p vcf <span class="nv">$i</span>.gz<span class="p">;</span> <span class="k">done</span>
 </pre></div>
 </td></tr></table>
 
-<p>Let’s look at a compressed VCF. Details on the VCF spec can be found <a href="http://vcftools.sourceforge.net/specs.html">here</a>.</p>
+<p>Let’s look at a compressed VCF. Details on the VCF spec can be found <a href="https://vcftools.github.io/specs.html">here</a>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>zless -S variant_calling/varscan.snp.vcf.gz
 </pre></div>
 </td></tr></table>
@@ -2020,7 +2019,7 @@ Fields vary from caller to caller. Some values are are almost always there:</p>
 <p><strong>DP</strong>: Raw read depth<br />
 <strong>GT</strong>: Genotype<br />
 <strong>PL</strong>: List of Phred-scaled genotype likelihoods. (min is better)<br />
-<strong>DP</strong>: &ldquo;# high-quality bases&rdquo;<br />
+<strong>DP</strong>: &ldquo;&rdquo;# high-quality bases&rdquo;<br />
 <strong>SP</strong>: Phred-scaled strand bias P-value<br />
 <strong>GQ</strong>: Genotype Quality  </p>
 </blockquote>
@@ -2121,7 +2120,7 @@ normal (<code class="codehilite">Blood</code>) and tumour (<code class="codehili
 <p><br>
 Let’s now run <code class="codehilite">VEP</code> on this VCF file to annotate each variant with its
 impact(s) on the genome.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">perl</span> <span class="n">Applications</span><span class="sr">/ensembl-tools/sc</span><span class="n">ripts</span><span class="sr">/variant_effect_predictor/</span><span class="n">variant_effect_predictor</span><span class="o">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">i</span> <span class="n">variants</span><span class="sr">/HC.chr5.60Mb.vcf.gz --vcf -o variants/</span><span class="n">HC</span><span class="o">.</span><span class="n">chr5</span><span class="mf">.60</span><span class="n">Mb</span><span class="o">.</span><span class="n">vep</span><span class="o">.</span><span class="n">vcf</span> <span class="o">--</span><span class="n">stats_file</span> <span class="n">variants</span><span class="sr">/HC.chr5.60Mb.vep.html --format vcf --offline -fork 4 --fasta ref/</span><span class="n">human_g1k_v37</span><span class="o">.</span><span class="n">fasta</span> <span class="o">--</span><span class="n">fields</span> <span class="n">Consequence</span><span class="p">,</span><span class="n">Codons</span><span class="p">,</span><span class="n">Amino_acids</span><span class="p">,</span><span class="n">Gene</span><span class="p">,</span><span class="n">SYMBOL</span><span class="p">,</span><span class="n">Feature</span><span class="p">,</span><span class="n">EXON</span><span class="p">,</span><span class="n">PolyPhen</span><span class="p">,</span><span class="n">SIFT</span><span class="p">,</span><span class="n">Protein_position</span><span class="p">,</span><span class="n">BIOTYPE</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">perl</span> <span class="nv">$VEP</span> <span class="o">--</span><span class="n">dir_cache</span> <span class="nv">$VEP_CACHE</span> <span class="o">-</span><span class="n">i</span> <span class="n">variants</span><span class="sr">/HC.chr5.60Mb.vcf.gz --vcf -o variants/</span><span class="n">HC</span><span class="o">.</span><span class="n">chr5</span><span class="mf">.60</span><span class="n">Mb</span><span class="o">.</span><span class="n">vep</span><span class="o">.</span><span class="n">vcf</span> <span class="o">--</span><span class="n">stats_file</span> <span class="n">variants</span><span class="sr">/HC.chr5.60Mb.vep.html --format vcf --offline -fork 4 --fasta ref/</span><span class="n">human_g1k_v37</span><span class="o">.</span><span class="n">fasta</span> <span class="o">--</span><span class="n">fields</span> <span class="n">Consequence</span><span class="p">,</span><span class="n">Codons</span><span class="p">,</span><span class="n">Amino_acids</span><span class="p">,</span><span class="n">Gene</span><span class="p">,</span><span class="n">SYMBOL</span><span class="p">,</span><span class="n">Feature</span><span class="p">,</span><span class="n">EXON</span><span class="p">,</span><span class="n">PolyPhen</span><span class="p">,</span><span class="n">SIFT</span><span class="p">,</span><span class="n">Protein_position</span><span class="p">,</span><span class="n">BIOTYPE</span>
 </pre></div>
 </td></tr></table>
 
@@ -2248,12 +2247,11 @@ Here, we are asking to return variants where their impact on the gene
 1000Genomes, ESP and EXaC is less than 1% or the variant is not present
 in any of these databases.</p>
 <p>Now let’s open the result in a spreadsheet to look at the annotations:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>libreoffice --calc variants/gemini-result.tsv
-Tick the &quot;Tab&quot; under &quot;Separated by&quot; on the dialog window that comes up.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>libreoffice --calc variants/gemini-result.tsv
 </pre></div>
 </td></tr></table>
 
+<p>Tick the &ldquo;Tab&rdquo; under &ldquo;Separated by&rdquo; on the dialog window that comes up.  </p>
 <p>You can see that the first 14 columns contain information on the variant
 including its location, ref, alt, dbSNP ID, quality and type. Slowly
 scroll to the right and look at the columns of data that are provided.
@@ -2275,7 +2273,7 @@ incredibly useful.</p>
 see in this results file. For example, you may want all variants in a
 specific gene, in which case you would simply add &ldquo;WHERE gene = ’BRCA1’&rdquo;
 to your query. For complete documentation with many examples of queries,
-see the GEMINI documentation here: <a href="http://gemini.readthedocs.org">http://gemini.readthedocs.org</a>.</p>
+see the GEMINI documentation <a href="http://gemini.readthedocs.org">here</a>.</p>
 <hr />
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ol>
@@ -2295,8 +2293,7 @@ see the GEMINI documentation here: <a href="http://gemini.readthedocs.org">http:
 <h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">&para;</a></h2>
 <p>This is based on an Introduction to DNA-Seq processing for cancer data
 by Mathieu Bourgey, Ph.D.  </p>
-<p>This tutorial is an adaptation of the one created by Louis letourneau
-<a href="https://github.com/lletourn/Workshops/tree/ebiCancerWorkshop201407doc/01-SNVCalling.md">https://github.com/lletourn/Workshops/tree/ebiCancerWorkshop201407doc/01-SNVCalling.md</a>.
+<p>This tutorial is an adaptation of the one created by Louis letourneau.
 Mathieu Bourgey would like to thank and acknowledge Louis for this help and for
 sharing his material. The format of the tutorial has been inspired from
 Mar Gonzalez Porta. He also wants to acknowledge Joel Fillon, Louis
