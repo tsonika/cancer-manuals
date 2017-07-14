@@ -1014,7 +1014,7 @@ computer environment and the command line.</p>
 All these directories will be made as sub-directories of a directory for
 the whole course called NGS. For this you can use the following
 commands:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkdir -p NGS/velvet/{part1,part2,part3}
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkdir -p NGS/velvet/{part1,part2}
 </pre></div>
 </td></tr></table>
 
@@ -1510,15 +1510,12 @@ fastx_trimmer -Q 33 -f 1 -l 27 -i SRR023408_2.fastq -o SRR023408_trim2.fastq
 writing files can become the bottleneck, also known as I/O bound.
 Therefore, it is often good practice to avoid unnecessary disk
 read/write.</p>
-<p>We could do what is called pipelining to send a stream of data from one
-command to another, using the pipe (<code class="codehilite">|</code>) character, without the need for
-intermediary files. The following command would achieve this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>gunzip --to-stdout &lt; SRR023408_1.fastq.gz | fastx_trimmer -Q 33 -f 4 -l 32 -o SRR023408_trim1.fastq 
-gunzip --to-stdout &lt; SRR023408_2.fastq.gz | fastx_trimmer -Q 33 -f 3 -l 29 -o SRR023408_trim2.fastq
-</pre></div>
-</td></tr></table>
-
+<div class="admonition hint">
+<p class="admonition-title">Tips</p>
+<p>We could do what is called pipelining to send a stream of data from one command to another, using the pipe (<code class="codehilite">|</code>) character, without the need for intermediary files. The following command would achieve this:       </p>
+<p>gunzip &ndash;to-stdout &lt; SRR023408_1.fastq.gz | fastx_trimmer -Q 33 -f 4 -l 32 -o SRR023408_trim1.fastq   <br />
+gunzip &ndash;to-stdout &lt; SRR023408_2.fastq.gz | fastx_trimmer -Q 33 -f 3 -l 29 -o SRR023408_trim2.fastq    </p>
+</div>
 <p>Now run <code class="codehilite">velveth</code> with a k-mer value of 21 for both the untrimmed and
 trimmed read files in <code class="codehilite">-shortPaired</code> mode. Separate the output of the
 two executions of <code class="codehilite">velveth</code> into suitably named directories, followed by
@@ -1618,35 +1615,30 @@ Memory: Lower memory usage</p></details></div>
 <thead>
 <tr>
 <th align="left">Metric</th>
-<th align="center">SRR022852</th>
-<th align="center">SRR023408</th>
-<th align="center">SRR023408.trimmed</th>
+<th align="right">SRR023408</th>
+<th align="right">SRR023408.trimmed</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">Overall Quality (1-5)</td>
-<td align="center">2</td>
-<td align="center">5</td>
-<td align="center">4</td>
+<td align="right">5</td>
+<td align="right">4</td>
 </tr>
 <tr>
 <td align="left">bp Coverage</td>
-<td align="center">136 x (36 bp;11,374,488)</td>
-<td align="center">95x (37bp; 7761796)</td>
-<td align="center">82x (32bp; 7761796)</td>
+<td align="right">95x (37bp; 7761796)</td>
+<td align="right">82x (32bp; 7761796)</td>
 </tr>
 <tr>
 <td align="left">k-mer Coverage</td>
-<td align="center">45x</td>
-<td align="center">43x (21); 33x (25)</td>
-<td align="center">30x (21); 20.5x (25)</td>
+<td align="right">43x (21); 33x (25)</td>
+<td align="right">30x (21); 20.5x (25)</td>
 </tr>
 <tr>
 <td align="left">N50 (k-mer used)</td>
-<td align="center">68,843 (25)</td>
-<td align="center">2,803 (21)</td>
-<td align="center">2,914 (21)</td>
+<td align="right">2,803 (21)</td>
+<td align="right">2,914 (21)</td>
 </tr>
 </tbody>
 </table>
@@ -1654,7 +1646,7 @@ Memory: Lower memory usage</p></details></div>
 <p class="admonition-title">Question</p>
 <p>What would you consider as the “best&rdquo; assembly?</p>
 </div>
-<div class="admonition success"><details><summary>Answer</summary><p>SRR022852</p></details></div>
+<div class="admonition success"><details><summary>Answer</summary><p>SRR023408.trimmed</p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>If you found a candidate, why do you consider it as “best&rdquo; assembly?</p>

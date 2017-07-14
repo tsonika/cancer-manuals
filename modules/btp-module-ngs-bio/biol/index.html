@@ -467,6 +467,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#author-information" title="Author Information" class="md-nav__link">
+    Author Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#introduction" title="Introduction" class="md-nav__link">
     Introduction
   </a>
@@ -901,6 +908,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#author-information" title="Author Information" class="md-nav__link">
+    Author Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#introduction" title="Introduction" class="md-nav__link">
     Introduction
   </a>
@@ -1019,6 +1033,12 @@
 <a href="http://revigo.irb.hr">http://revigo.irb.hr</a></p>
 <p>STRING:<br />
 <a href="http://string-db.org">http://string-db.org</a></p>
+<h2 id="author-information">Author Information<a class="headerlink" href="#author-information" title="Permanent link">&para;</a></h2>
+<p><em>Primary Author(s):</em>
+    Susan M Corley <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#46;&#99;&#111;&#114;&#108;&#101;&#121;&#64;&#117;&#110;&#115;&#119;&#46;&#101;&#100;&#117;&#46;&#97;&#117;">&#115;&#46;&#99;&#111;&#114;&#108;&#101;&#121;&#64;&#117;&#110;&#115;&#119;&#46;&#101;&#100;&#117;&#46;&#97;&#117;</a></p>
+<p><em>Contributor(s):</em>
+    Sonika Tyagi <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;&#110;&#105;&#107;&#97;&#46;&#116;&#121;&#97;&#103;&#105;&#64;&#97;&#103;&#114;&#102;&#46;&#111;&#114;&#103;&#46;&#97;&#117;">&#115;&#111;&#110;&#105;&#107;&#97;&#46;&#116;&#121;&#97;&#103;&#105;&#64;&#97;&#103;&#114;&#102;&#46;&#111;&#114;&#103;&#46;&#97;&#117;</a> <br />
+    Nandan Deshpande <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#46;&#100;&#101;&#115;&#104;&#112;&#97;&#110;&#101;&#64;&#117;&#110;&#115;&#119;&#46;&#101;&#100;&#117;&#46;&#97;&#117;">&#110;&#46;&#100;&#101;&#115;&#104;&#112;&#97;&#110;&#101;&#64;&#117;&#110;&#115;&#119;&#46;&#101;&#100;&#117;&#46;&#97;&#117;</a></p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The goal of this hands-on session is to allow you to develop some
 familiarity with commonly used, freely available R based packages and
@@ -1105,14 +1125,12 @@ DE_GOana_top_MF_up<span class="o">&lt;-</span> topGO<span class="p">(</span>DE_G
 <p class="admonition-title">Question</p>
 <p>What is the general theme emerging when we look at biological process in the down-regulated genes and the up-regulated genes?</p>
 </div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary></details><p>We see terms involving the cell cycle and cell division are enriched in the down-regulated genes and terms involving ER stress and protein folding are enriched in the up-regulated genes. </p>
-</div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>We see terms involving the cell cycle and cell division are enriched in the down-regulated genes and terms involving ER stress and protein folding are enriched in the up-regulated genes. </p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Looking at the biological process (BP) term “cell division: GO:0051301”, how many down-regulated and up-regulated DEGs are annotated with this term, and what statistical significance is associated with this enrichment?</p>
 </div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary></details><p>Look for the row for GO:0051301 in the top 20 BP ontology terms. </p>
-</div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>Look for the row for GO:0051301 in the top 20 BP ontology terms. </p></details></div>
 <p>There are a number of tools and packages available with the
 R-bioconductor repositories that you can use with your R code to run
 ontologies and pathway analysis. </p>
@@ -1143,14 +1161,12 @@ description of the statistical test used in DAVID
 <p class="admonition-title">Question</p>
 <p>What functional themes emerge in Cluster 1 and Cluster 2?</p>
 </div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary></details><p>Cluster 1 is enriched for cell singling and Cluster 2 is enriched for cell cycle. Note that answers may vary based on the genes entered and the options selected. </p>
-</div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>Cluster 1 is enriched for cell singling and Cluster 2 is enriched for cell cycle. Note that answers may vary based on the genes entered and the options selected. </p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>How many of the DEGs are annotated with the term “intracellular signal transduction” and name five genes?</p>
 </div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary></details><p>Looking at the first row of the DAVID results we see that 181 DEGs are annotated with “Intracellular signal transduction”. The first 5 genes listed are DHCR24, HMGCR, ADAP12, ARL5A, ARFGEF3.</p>
-</div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>Looking at the first row of the DAVID results we see that 181 DEGs are annotated with “Intracellular signal transduction”. The first 5 genes listed are DHCR24, HMGCR, ADAP12, ARL5A, ARFGEF3.</p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Does this seem to be sensible in an experiment that looks at the response of cancer cells to a stimulant?</p>
@@ -1176,20 +1192,17 @@ look at the DEGs associated with the most enriched clusters.</p>
 <p class="admonition-title">Question</p>
 <p>Find the GO term <em>regulation of cell proliferation</em> how far can you trace this back to the parent terms. </p>
 </div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary></details><p>regulation of cell proliferation – regulation of cellular process – regulation of biological process – biological regulation – biological process</p>
-</div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>regulation of cell proliferation – regulation of cellular process – regulation of biological process – biological regulation – biological process</p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>What are the direct child terms of <em>regulation of cell proliferation</em>?. </p>
 </div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary></details><p>regulation of stem cell proliferation, regulation of sooth muscle cell proliferation, positive regulation of cell proliferation, regulation of mesenchymal cell proliferation</p>
-</div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>regulation of stem cell proliferation, regulation of sooth muscle cell proliferation, positive regulation of cell proliferation, regulation of mesenchymal cell proliferation</p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>What is the enrichment score for <em>regulation of cell proliferation</em> ? How is this calculated (Hint: scroll down the page for the heading Enrichment). </p>
 </div>
-<div class="admonition success"><details><summary><strong>Answer</strong></summary></details><p>1.58 ((104/870)/(919/12137))</p>
-</div>
+<div class="admonition success"><details><summary><strong>Answer</strong></summary><p>1.58 ((104/870)/(919/12137))</p></details></div>
 <h3 id="revigo-to-reduce-redundancy-and-visualise">REVIGO to reduce redundancy and visualise<a class="headerlink" href="#revigo-to-reduce-redundancy-and-visualise" title="Permanent link">&para;</a></h3>
 <p>We can use the results generated by the GOrilla web tool as input to
 REVIGO which will summarise the GO data and allow us to visualize the
