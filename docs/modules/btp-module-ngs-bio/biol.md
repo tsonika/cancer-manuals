@@ -31,6 +31,15 @@ http://revigo.irb.hr
 STRING:  
 http://string-db.org
 
+## Author Information
+
+*Primary Author(s):*
+    Susan M Corley s.corley@unsw.edu.au
+  
+*Contributor(s):*
+    Sonika Tyagi sonika.tyagi@agrf.org.au   
+    Nandan Deshpande n.deshpane@unsw.edu.au
+
 Introduction
 ------------
 
@@ -112,7 +121,7 @@ Based on the above section:
 
 !!! success ""
     ??? "**Answer**"
-       We see terms involving the cell cycle and cell division are enriched in the down-regulated genes and terms involving ER stress and protein folding are enriched in the up-regulated genes. 
+        We see terms involving the cell cycle and cell division are enriched in the down-regulated genes and terms involving ER stress and protein folding are enriched in the up-regulated genes. 
 
 !!! note "Question"
     Looking at the biological process (BP) term “cell division: GO:0051301”, how many down-regulated and up-regulated DEGs are annotated with this term, and what statistical significance is associated with this enrichment?
@@ -120,7 +129,7 @@ Based on the above section:
 
 !!! success ""
     ??? "**Answer**"
-       Look for the row for GO:0051301 in the top 20 BP ontology terms. 
+        Look for the row for GO:0051301 in the top 20 BP ontology terms. 
 
 
 There are a number of tools and packages available with the
@@ -164,7 +173,7 @@ Based on the above section:
 
 !!! success ""
     ??? "**Answer**"
-       Cluster 1 is enriched for cell singling and Cluster 2 is enriched for cell cycle. Note that answers may vary based on the genes entered and the options selected. 
+        Cluster 1 is enriched for cell singling and Cluster 2 is enriched for cell cycle. Note that answers may vary based on the genes entered and the options selected. 
 
 !!! note "Question"
     How many of the DEGs are annotated with the term “intracellular signal transduction” and name five genes?
@@ -172,7 +181,7 @@ Based on the above section:
 
 !!! success ""
     ??? "**Answer**"
-       Looking at the first row of the DAVID results we see that 181 DEGs are annotated with “Intracellular signal transduction”. The first 5 genes listed are DHCR24, HMGCR, ADAP12, ARL5A, ARFGEF3.
+        Looking at the first row of the DAVID results we see that 181 DEGs are annotated with “Intracellular signal transduction”. The first 5 genes listed are DHCR24, HMGCR, ADAP12, ARL5A, ARFGEF3.
 
 !!! note "Question"
     Does this seem to be sensible in an experiment that looks at the response of cancer cells to a stimulant?
@@ -209,21 +218,21 @@ Based on the above section:
 
 !!! success ""
     ??? "**Answer**"
-    regulation of cell proliferation – regulation of cellular process – regulation of biological process – biological regulation – biological process
+        regulation of cell proliferation – regulation of cellular process – regulation of biological process – biological regulation – biological process
 
 !!! note "Question"
     What are the direct child terms of *regulation of cell proliferation*?. 
 
 !!! success ""
     ??? "**Answer**"
-    regulation of stem cell proliferation, regulation of sooth muscle cell proliferation, positive regulation of cell proliferation, regulation of mesenchymal cell proliferation
+        regulation of stem cell proliferation, regulation of sooth muscle cell proliferation, positive regulation of cell proliferation, regulation of mesenchymal cell proliferation
 
 !!! note "Question"
     What is the enrichment score for *regulation of cell proliferation* ? How is this calculated (Hint: scroll down the page for the heading Enrichment). 
 
 !!! success ""
     ??? "**Answer**"
-    1.58 ((104/870)/(919/12137))
+        1.58 ((104/870)/(919/12137))
 
 
 ### REVIGO to reduce redundancy and visualise

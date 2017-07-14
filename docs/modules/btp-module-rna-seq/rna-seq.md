@@ -67,6 +67,16 @@ http://www.ebi.ac.uk/ena/data/view/ERR022484
 http://www.ebi.ac.uk/ena/data/view/ERR022485  
 http://www.pnas.org/content/suppl/2008/12/16/0807121105.DCSupplemental
 
+## Author Information
+
+*Primary Author(s):*
+    Susan M Corley s.corley@unsw.edu.au
+    Sonika Tyagi sonika.tyagi@agrf.org.au   
+   
+*Contributor(s):*
+    Nathan S. Watson-Haigh nathan.haigh@acpfg.com.au 
+    Myrto Kostadima, EMBL-EBI kostadmi@ebi.ac.uk 
+    Remco Loos, EMBL-EBI remco@ebi.ac.uk
 
 Introduction
 ------------
@@ -271,7 +281,7 @@ http://www.broadinstitute.org/software/igv/alignmentdata
 
 !!! success ""
     ??? "**Answer**"
-       As the name suggests, the file provides a details summary of the alignment statistics.
+        As the name suggests, the file provides a details summary of the alignment statistics.
 
 
 
@@ -284,7 +294,7 @@ unampped reads.
 
 !!! success ""
     ??? "**Answer**"
-       Splice junctions can be identified in the alignment BAM files. These are the aligned RNA-Seq reads that have skipped-bases from the reference genome (most likely introns).
+        Splice junctions can be identified in the alignment BAM files. These are the aligned RNA-Seq reads that have skipped-bases from the reference genome (most likely introns).
 
 !!! note "Question"
     Are the junctions annotated for `CBY1` consistent with the annotation?
@@ -292,7 +302,7 @@ unampped reads.
 
 !!! success ""
     ??? "**Answer**"
-       Read alignment supports an extended length in exon 5 to the gene model(cby1-001)
+        Read alignment supports an extended length in exon 5 to the gene model(cby1-001)
 
 
 Once tophat finishes aligning the 6h data you will need to sort the
@@ -441,12 +451,14 @@ we generated the the GTF-guided transcriptome assemblies:
     to zoom in to the gene of interest.
 
 !!! note "Question"
-    Do you observe any difference between the Ensembl GTF annotations and the GTF-guided transcripts assembled by cufflinks (the “2cells GTF-Guided Transcripts” track)?
+    Do you observe any difference between the Ensembl GTF annotations and the GTF-guided transcripts 
+    assembled by cufflinks (the “2cells GTF-Guided Transcripts” track)?
 
 
 !!! success ""
     ??? "**Answer**"
-       Yes. It appears that the Ensembl annotations may have truncated the last exon. However, our data also doesn’t contain reads that span between the last two exons.
+        Yes. It appears that the Ensembl annotations may have truncated the last exon. 
+        However, our data also doesn’t contain reads that span between the last two exons.
 
 
 
@@ -600,7 +612,7 @@ should produce a plot as shown in Figure 4):
 
 !!! success ""
     ??? "**Answer**"
-       The MDS plot shows us that the controls are separated from the DHT treated cells. This indicates that there is a difference in gene expression between the conditions.
+        The MDS plot shows us that the controls are separated from the DHT treated cells. This indicates that there is a difference in gene expression between the conditions.
 
 
 We will now estimate the dispersion. We start by estimating the common
@@ -641,7 +653,7 @@ dispersion of 0.4 indicating 40% variation between samples.
 
 !!! success ""
     ??? "**Answer**"
-       If we simply used the common dispersion for these genes we would underestimate biological variability, which in turn affects whether these genes would be identified as being differentially expressed between conditions. 
+        If we simply used the common dispersion for these genes we would underestimate biological variability, which in turn affects whether these genes would be identified as being differentially expressed between conditions. 
 
 
 It is recommended to use the tagwise dispersion,which takes account of gene-to-gene variability.
@@ -696,7 +708,7 @@ We can write out these results to our current directory.
 
 !!! success ""
     ??? "**Answer**"
-       There are 4431 DEGs at an FDR = 0.05 which reduces to 1148 if we require a log fold change of 1.5.
+        There are 4431 DEGs at an FDR = 0.05 which reduces to 1148 if we require a log fold change of 1.5.
 
 
 
@@ -745,7 +757,7 @@ How many differentially expressed genes are identified?
 
 !!! success ""
     ??? "**Answer**"
-       There are 4103 DEGs at an FDR = 0.05 which reduces to 1109 if we require a log fold change of 1.5.
+        There are 4103 DEGs at an FDR = 0.05 which reduces to 1109 if we require a log fold change of 1.5.
 
 
 We will write out these results.

@@ -49,6 +49,18 @@ http://gostat.wehi.edu.au
 
 http://www.ebi.ac.uk/arrayexpress/experiments/E-GEOD-11431
 
+## Author Information
+
+*Primary Author(s):*
+    Sonika Tyagi sonika.tyagi@agrf.org.au   
+    Sean Li sean.li@anu.edu.au    
+
+
+*Contributor(s):*
+    Mirana Ramialison mirana.ramialison@monash.edu    
+    Markus Tondl markus.tondl@monash.edu    
+
+
 Introduction
 ------------
 
@@ -63,7 +75,7 @@ binding regions.
 Prepare the Environment
 -----------------------
 
-The material for this practical can be found in the `ChIP-seq` directory
+The material for this practical can be found in the `ChIPseq` directory
 on your desktop. Please make sure that this directory also contains the
 SAM/BAM files you produced during the alignment practical.
 
@@ -86,16 +98,19 @@ Open the Terminal and go to the `chipseq` directory:
 Finding enriched areas using SPP
 --------------------------------
 
-Terminology used in the tutorial: `fragment:` overlapping fragments
-obtaining in the IP (immuno precipitation) experiments. `tag:` sequenced
-part of the fragment which could be from one end (in case of single end
-sequencing ) or both ends in the paired end data. `alignment:` a process
-to determine the position of the tags, which typically should be around
-the binding site. `peaks:` spatial distribution of the tags densities
-around the binding sites on the genome. You would see two separate peaks
-of tags on the positive and negative strand around the binding site. The
-distance between the two peaks should reflect the size of the protected
-region.
+Terminology used in the tutorial: 
+
+-   `fragment:` overlapping fragments
+    obtaining in the IP (immuno precipitation) experiments. 
+-   `tag:` sequenced part of the fragment which could be from one end (in case of single end
+    sequencing ) or both ends in the paired end data. 
+-   `alignment:` a process to determine the position of the tags, which typically should be around
+    the binding site. 
+-   `peaks:` spatial distribution of the tags densities
+    around the binding sites on the genome. You would see two separate peaks
+    of tags on the positive and negative strand around the binding site. The
+    distance between the two peaks should reflect the size of the protected
+    region.
 
 SPP is a Chip-seq processing pipeline implemented using R.
 
@@ -119,16 +134,19 @@ your working directory correctly:
     library(biomaRt);
     setwd('/home/trainee/chipseq');
 
-**1. Loading tag data, selecting choosing alignment quality, removing
-anomalies**\
-The first stage in SPP are 1) load input data; 2) choose alignment
-quality and 3) remove anomalies. SPP can read output from the following
+
+The first stage in SPP are:
+1.    load input data; 
+2.    choose alignment quality and 
+3.    remove anomalies. 
+
+SPP can read output from the following
 aligners and file formats: ELAND, MAQ, bowtie, Arachne, tagAlign format
 and BAM format (Note: because BAM standard doesn’t specify a flag for a
 uniquely-mapped read, the aligner has to generate a BAM file that would
 contain only unique reads.)
 
-### STEP1 Loading data and quality filter the informative tags
+### STEP 1. Loading data and quality filter the informative tags
 
 First load Oct4 and gfp bam files. Here GFP are the control or input
 samples, these are usually mock IP DNA where you do not expect to see
@@ -153,9 +171,10 @@ should show the predominant size of the protected region.
 
     binding.characteristics <- get.binding.characteristics(oct4.data,srange=c(50,500),bin=5);
 
-The binding.characteristics provides the estimate of the binding peak
+The `binding.characteristics` provides the estimate of the binding peak
+
 separation distance, cross-correlation profile itself and tag quality
-bin acceptance information. The srange parameter defines the possible
+bin acceptance information. The `srange` parameter defines the possible
 range for the size of the protected region. It is supposed to be higher
 than tag length. However, the upper boundary (500) cannot be too high,
 which will increase the running time. The bin parameter tags within the
@@ -164,6 +183,9 @@ bin size will decrease the accuracy of the determined parameters.
 
 Then, print out binding peak separation distance and we can plot
 cross-correlation profile:
+
+!!! failure "STOP"
+    DO NOT run this command, we dont have enough data to generate this plot.
 
     print(paste("binding peak separation distance=",binding.characteristics$peak$x));
     pdf(file="oct4.crosscorrelation.pdf",width=5,height=5);
@@ -177,18 +199,18 @@ cross correlation magnitude whereas a randonmly mapped set of tags
 should decrease it. The following calls will select tags with acceptable
 alignment quality based on the binding characteristics:
 
-    chip.data <- select.informative.tags(oct4.data,binding.characteristics);
+    chip.data <- select.informative.tags(oct4.data`binding.characteristics);
     gfpcontrol.data <- select.informative.tags(gfp.data,binding.characteristics);
 
 The last step below will scan along the chromosomes calculating local
-density of region (can be specified using window.size parameter, default
+density of region (can be specified using `window.size` parameter, default
 is 200bp), removing or restricting singular positions with extremely
 high tag count relative to the neighborhood:
 
     chip.data <- remove.local.tag.anomalies(chip.data);
     gfpcontrol.data <- remove.local.tag.anomalies(gfpcontrol.data);
 
-### STEP2 Calculating genome-wide tag density and tag enrichment/depletion profiles
+### STEP 2. Calculating genome-wide tag density and tag enrichment/depletion profiles
 
 The following commands will calculate smoothed tag density and output it
 into a WIG file that can be read with genome browsers, such as IGV
@@ -247,7 +269,7 @@ BED format:
     bp.short <- add.broad.peak.regions(chip.data,gfpcontrol.data,bp,window.size=500,z.thr=3);
     write.table(na.omit(data.frame(cbind(rep("1", length(bp.short$npl$chr1$rs)), bp.short$npl$chr1$rs, bp.short$npl$chr1$re))), file = paste0("oct4","_enrich_narrow_chr1.bed"),quote = FALSE, row.names = FALSE, col.names = FALSE, sep = "\t");  
 
-### STEP3 Comparing Binding Sites to Annotations Using the biomaRt package
+### STEP 3. Comparing Binding Sites to Annotations Using the biomaRt package
 
 In order to biologically interpret the results of ChIP-seq experiments,
 it is usually recommended to look at the genes and other annotated
