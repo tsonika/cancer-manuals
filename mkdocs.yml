@@ -2,7 +2,7 @@ site_name: Markdown Manuals for Bioinformatics Training Platform (BTP)
 site_description: This contains all material for Markdown version of BTP workshops.
 site_author: Authors
 
-#site_url: 'https://bpa-csiro-workshops.github.io/btp-manuals-md'
+#site_url: 'https://bpa-csiro-workshops.github.io/cancer-manuals'
 
 copyright: '&copy; The authors; 2017-'
 
@@ -24,7 +24,7 @@ extra:
 
 #  social:
 #    - type: github
-#      link: https://bpa-csiro-workshops.github.io/btp-manuals-md
+#      link: https://bpa-csiro-workshops.github.io/cancer-manuals
 
 markdown_extensions:
     - admonition
