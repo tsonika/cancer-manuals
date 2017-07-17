@@ -38,6 +38,18 @@
     
         
     <url>
+     <loc>/modules/cancer-module-cli/commandline/</loc>
+     <lastmod>2017-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/modules/cancer-module-qc/ngs-qc/</loc>
+     <lastmod>2017-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/modules/cancer-module-alignment/alignment/</loc>
      <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
