@@ -18,13 +18,11 @@
     
 
     
-        
     <url>
      <loc>/timetables/timetable_cancer/</loc>
      <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     
 
     
@@ -74,17 +72,25 @@
     </url>
         
     <url>
-     <loc>/modules/cancer-module-viz/visu/</loc>
-     <lastmod>2017-07-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc></loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/modules/cancer-module-viz/visu/</loc>
+     <lastmod>2017-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/license/</loc>
+     <lastmod>2017-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
 </urlset>
