@@ -57,6 +57,8 @@ pages:
 - Workshop Information: preamble.md
 
 # - All Modules:
+#    - Introduction to Command Line: modules/cancer-module-cli/commandline.md
+#    - Cancer QC: modules/cancer-module-qc/ngs-qc.md
 #     - Cancer Read Alignment: modules/cancer-module-alignment/alignment.md
 #     - Copy Number Variation: modules/cancer-module-cnv/cnv-tut.md
 #     - Single Nucleotide Variant Calling and Annotation: modules/cancer-module-snv/snv.md
@@ -71,6 +73,8 @@ pages:
 #     - Scaffolding: modules/denovo-module-scaffolding/scaffold.md
 
 - Cancer Genomics Modules:
+    - Introduction to Command Line: modules/cancer-module-cli/commandline.md
+    - Cancer QC: modules/cancer-module-qc/ngs-qc.md
     - Read Alignment: modules/cancer-module-alignment/alignment.md
     - Single Nucleotide Variant Calling and Annotation: modules/cancer-module-snv/snv.md
     - Copy Number Variation: modules/cancer-module-cnv/cnv-tut.md
