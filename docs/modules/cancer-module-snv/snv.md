@@ -6,7 +6,7 @@ After completing this practical the trainee should be able to:
 
 -   Perform QC measures on BAM files
 
--   Understand and perform simple variant detection on paired NGS data
+-   Perform simple variant detection on paired NGS data
 
 -   Add annotation information to raw variant calls
 
