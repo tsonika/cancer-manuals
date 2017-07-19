@@ -1,3 +1,5 @@
+
+## Licensing
 This work is licensed under a Creative Commons Attribution 3.0 Unported License and the below text is a summary of the main terms of the full Legal Code (the full license) available at http://creativecommons.org/licenses/by/3.0/legalcode.
 
 **You are free:**  
