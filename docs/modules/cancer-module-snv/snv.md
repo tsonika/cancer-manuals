@@ -831,8 +831,8 @@ Open `IGV`
 Then:
 
 1. Choose the reference genome corresponding to those use for alignment (b37).
-2. Load BAM files (`tumour.sorted.dup.recal.bam` and `normal.sorted.dup.recal.bam`).
-3. Load VCF files (from `variant_calling` directory).
+2. Load BAM files from the `alignment` directory (`tumour.sorted.dup.recal.bam` and `normal.sorted.dup.recal.bam`).
+3. Load three different VCF files (from `variant_calling` directory).
 
 !!! note ""
     Explore and play with the data:
