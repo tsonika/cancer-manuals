@@ -702,12 +702,6 @@ Notes on `samtools` arguments:
   > **-q**: skip alignments with mapQ smaller than 1  
   > **-g**: generate genotype likelihoods in BCF format
 
-Notes on `bcftools` arguments:
-
-  > **-v**: output potential variant sites only  
-  > **-c**: SNP calling (force –e : likelihood based analyses)  
-  > **-g**: call genotypes at variant sites  
-
 <br>
   ```java
   $JAVA7 -Xmx2G -jar ${VARSCAN_JAR} \
@@ -743,22 +737,22 @@ Now let’s try a different variant caller, `MuTect`.
 And finally let’s try Illumina’s `Strelka`.
 
   ```
-    cp ${STRELKA_HOME}/etc/strelka_config_bwa_default.ini .
+  cp ${STRELKA_HOME}/etc/strelka_config_bwa_default.ini .
 
-    sed 's/isSkipDepthFilters =.*/isSkipDepthFilters = 1/g' -i strelka_config_bwa_default.ini
+  sed 's/isSkipDepthFilters =.*/isSkipDepthFilters = 1/g' -i strelka_config_bwa_default.ini
 
-    ${STRELKA_HOME}/bin/configureStrelkaWorkflow.pl \
-      --normal=alignment/normal/normal.sorted.dup.recal.bam \
-      --tumor=alignment/tumour/tumour.sorted.dup.recal.bam \
-      --ref=${REF}/human_g1k_v37.fasta \
-      --config=${SNV_BASE}/strelka_config_bwa_default.ini \
-      --output-dir=variant_calling/strelka/
+  ${STRELKA_HOME}/bin/configureStrelkaWorkflow.pl \
+    --normal=alignment/normal/normal.sorted.dup.recal.bam \
+    --tumor=alignment/tumour/tumour.sorted.dup.recal.bam \
+    --ref=${REF}/human_g1k_v37.fasta \
+    --config=${SNV_BASE}/strelka_config_bwa_default.ini \
+    --output-dir=variant_calling/strelka/
 
-    cd variant_calling/strelka/
-    make -j2
-    cd ../..
+  cd variant_calling/strelka/
+  make -j2
+  cd ../..
 
-    cp variant_calling/strelka/results/passed.somatic.snvs.vcf variant_calling/strelka.vcf
+  cp variant_calling/strelka/results/passed.somatic.snvs.vcf variant_calling/strelka.vcf
   ```
 
 ### Comparing variant callers
