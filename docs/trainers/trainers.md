@@ -1,8 +1,4 @@
 <!--[image](images/generic.jpg) **NAME**, Position, Affiliation-->
-**Dr. Matthew Field** <br>
-Senior Research Fellow<br>
-Australian National University/James Cook University, Cairns -->
-<!--[image](images/Gayevskiy.jpg) **Dr. Velimir Gayevskiy** Translational Bioinformatics Officer, KCCG, Garvan Institute of Medical Research NSW  -->
 
 
 ![image](images/Patch.jpg) <br>
@@ -23,8 +19,7 @@ Children Medical Research Institute, Kids Cancer Alliance, University of Sydney,
 ![image](images/Tyagi.jpg) <br>
 **Dr. Sonika Tyagi** <br>
 Bioinformatics Manager<br>
-Monash Bioinformatics Platform, Melbourne <br>
-## Bioinformatics Training Platform Development  
+Monash Bioinformatics Platform, Monash University, Melbourne <br>
 
 ![image](images/Revote.jpg) <br>
 **Mr. Jerico Revote** <br>
